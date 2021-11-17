@@ -1,0 +1,108 @@
+/*-------GLOBAL--------*/
+
+
+:root {
+    --main-background-color:#F6F6F6;
+    --main-orange:#ED7D2B;
+    --main-medium-blue:#2B478B;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color:var(--main-background-color) !important;
+    /* position: relative; */
+}
+
+html {
+    font-size: 62.5%;
+}
+/*---------NAVBAR---------*/
+
+#navbar{
+    background-color:var(--main-orange);
+}
+#navbar img{
+    width:30rem;
+    max-width: 100%;
+    padding: 10px 20px;
+}
+
+/*---------LOGIN---------*/
+.login-box{
+    width:400px;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color:white;
+
+    border-radius: 5px;
+    padding: 20px;
+    font-size:1.8rem;
+}
+
+input[type=text]{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 50px;
+    box-sizing: border-box;
+    outline: none;
+}
+
+input[type=password]{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 50px;
+    box-sizing: border-box;
+    outline: none;
+}
+
+input[type=submit] {
+    width: 100%;
+    background-color:var(--main-medium-blue);
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+/*---------LOGIN - TESTING ---------*/
+input[type=button] {
+    width: 100%;
+    background-color:var(--main-medium-blue);
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+
+
+input[type=submit]:hover {
+    opacity: 0.9;
+}
+
+input[type=text]:focus{
+    box-shadow: 0 0 3pt 2pt var(--main-medium-blue);
+}
+
+/*---------LINKS---------*/
+.login-link{
+    padding: 10px;
+}

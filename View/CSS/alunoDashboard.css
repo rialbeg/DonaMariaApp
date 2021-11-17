@@ -1,0 +1,332 @@
+/* ------------------------- GLOBAL -------------------------*/
+
+:root {
+  --main-background-color: #f6f6f6;
+  --main-orange: #ed7d2b;
+  --main-medium-blue: #2b478b;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Exo 2", sans-serif;
+  background-color: var(--main-background-color);
+  font-size: 1.6rem;
+}
+
+/* ------------------------- NAVBAR ------------------------- */
+nav#navbar {
+  background-color: var(--main-orange);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  font-size: 2rem;
+  color: white;
+
+  position: fixed;
+  width: 100%;
+  z-index: 5;
+  padding: 0% 15%;
+}
+
+nav img#logo-nome {
+  width: 30rem;
+  max-width: 100%;
+  padding: 10px 20px;
+}
+
+nav ul.navlist li.navitem {
+  display: inline;
+  padding-right: 30px;
+}
+
+nav div.btn-login {
+  padding-right: 20px;
+}
+
+/* ------------------------- MAIN -------------------------*/
+
+main {
+  padding-top: 9rem;
+  /* margin: 0 15rem; */
+  flex-wrap: wrap;
+}
+
+.home-text-container .home-title {
+  position: absolute;
+  width: auto;
+  height: 43px;
+  left: 110px;
+
+  font-family: Expletus Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 48px;
+
+  color: #ffffff;
+}
+
+.home-text-container .home-subtitle {
+  position: absolute;
+  width: 730px;
+  height: 75px;
+  left: 110px;
+  top: 170px;
+
+  font-family: Expletus Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 58px;
+  line-height: 78px;
+
+  color: #ffffff;
+}
+/* ------------------------- LINKS ------------------------- */
+a:hover{
+  cursor: pointer;
+}
+/* ------------------------- HEADER ------------------------- */
+#header {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: var(--main-orange);
+  color: white;
+  height: 222.93px;
+  font-size: 2.5rem;
+}
+
+/* .header-text {
+  margin-left: 20rem;
+}
+.header-text .header-welcome {
+  font-size: 2rem;
+}
+.header-text .header-name {
+  font-size: 5rem;
+}
+
+.header-creditos {
+    margin-right: 16rem;
+}
+.header-creditos .header-text {
+  font-size: 2rem;
+}
+.header-creditos .header-valor {
+  font-size: 5rem;
+}
+
+.header-name {
+  font-size: 2.4rem;
+  width: auto;
+}
+.header-text .header-line {
+  border: 3px solid;
+  width: 30%;
+} */
+
+/* ------------------------- PRODUCTS HEADER ------------------------- */
+
+.title {
+  text-align: start;
+  padding-top: 38px;
+  padding-left: 5%;
+  color: var(--main-orange);
+}
+
+.thin-line {
+  color: var(--main-orange);
+  margin: 10px auto;
+  border: 1px solid;
+  width: 90%;
+}
+
+/* ------------------------------ TAB ------------------------- */
+
+.tabLine {
+  color: var(--main-orange);
+  margin: 10px auto;
+  border: 1px solid;
+  width: 200px;
+}
+
+.tab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  overflow: hidden;
+  background-color: #f6f6f6;
+}
+
+.tab button {
+  background-color: inherit;
+  float: center;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 10px 10px;
+  transition: 0.3s;
+  color: #ed7d2b;
+}
+
+.tablinks {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 30px;
+  line-height: 40px;
+
+  color: #ed7d2b;
+}
+
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+
+/* ------------------------------ TABS: Comidas/Bebidas ------------------------- */
+
+.titleTab {
+  text-align: start;
+  padding-top: 3rem;
+  padding-left: 5%;
+  font-size: 50px;
+  color: var(--main-orange);
+}
+
+.produtos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.produto {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 2rem;
+  text-align: center;
+  width: 50rem;
+  height: 15rem;
+  padding: 0px;
+  border-radius: 3rem;
+  box-shadow: 0 0 20px 10px #d9d9d9;
+}
+
+.produto img {
+  padding: 1rem;
+}
+
+.produto img {
+  width: 12rem;
+  height: 12rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.produto-text {
+  display: flex;
+  align-items: flex-start;
+  justify-content: start;
+  flex-direction: column;
+}
+
+.produto-text h1,
+h2,
+h5 {
+  margin: 0.2rem 0.2rem;
+}
+
+/* ------------------------------ TABLES ------------------------- */
+.table-title{
+  /* text-align: center; */
+  color: var(--main-medium-blue);
+  font-size: 3rem;
+  /* margin-bottom: 10px; */
+}
+.options{
+  font-size:1.8rem;
+}
+#fname,.search-form input[type="submit"]{
+  padding: 8px 20px;
+}
+.search-form input[type="text"]{
+  width:300px;
+}
+
+.table-search{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.table-search > *,.search-form > *,.table-search div > *{
+  margin: 5px;
+}
+.table-container{
+    overflow-x: auto;
+    min-width:400px;
+    width:70%;
+    margin:10px auto;
+}
+
+#customers {
+    border-collapse: collapse;
+    width: 100%;
+}
+  
+  #customers td, #customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #customers tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #customers tr:hover {background-color: #ddd;}
+  
+  #customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: var(--main-orange);
+    color: white;
+  }
+
+  .float{
+    position:fixed;
+    width:60px;
+    height:60px;
+    bottom:60px;
+    right:60px;
+    background-color:var(--main-orange);
+    color:#FFF;
+    border-radius:50px;
+    text-align:center;
+    box-shadow: 2px 2px 3px #999;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /************MEDIA QUERIES******************/
+  @media(max-width:800px){
+    html {
+      font-size: 50%;
+    }
+    #header{
+      flex-direction: column;
+    }
+  }

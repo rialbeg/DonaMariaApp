@@ -1,0 +1,146 @@
+/*-------GLOBAL--------*/
+
+
+:root {
+    --main-background-color:#F6F6F6;
+    --main-orange:#ED7D2B;
+    --main-medium-blue:#2B478B;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color:var(--main-background-color) !important;
+    /* position: relative; */
+    
+}
+
+html {
+    font-size: 62.5%;
+}
+
+.container{
+    /* position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); */
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.hidden{
+    visibility: hidden;
+}
+/*-------LINKS--------*/
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+    background-color:var(--main-orange);
+    color: white !important;
+    opacity: 0.9;
+}
+
+a:active {
+    text-decoration: underline;
+}
+
+a{
+    color:black !important;
+}
+
+/*---------NAVBAR---------*/
+
+#navbar{
+    background-color:var(--main-orange);
+}
+#navbar img{
+    width:30rem;
+    max-width: 100%;
+    padding: 10px 20px;
+}
+
+
+/*---------TITULO---------*/
+.cda-title{
+    text-align:center;
+    opacity: 0.9;
+    padding-top: 10px;
+}
+
+/*---------FORM---------*/
+.infoaluno1,.infoaluno2{
+    width:400px;
+    
+    background-color:white;
+
+    padding: 20px;
+    font-size:1.8rem;
+}
+
+input[type=text],input[type=email],input[type=password]{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 50px;
+    box-sizing: border-box;
+    outline:none;
+}
+
+input[type=text]:focus,input[type=email]:focus,input[type=password]:focus{
+    box-shadow: 0 0 3pt 2pt var(--main-medium-blue);
+}
+
+input[type=submit],.btn-cancelar{
+    width: 40%;
+    color:white;
+    padding: 14px 20px;
+    margin: 8px 15px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    text-align: center;
+}
+
+input[type=submit]:hover {
+    opacity: 0.9;
+}
+
+/*---------BOTÕES---------*/
+.buttons{
+    display: flex;
+    justify-content:center;
+}
+
+.btn-cancelar{
+    border:2px solid var(--main-orange);
+}
+
+.medium-blue{
+    background-color: var(--main-medium-blue);
+}
+
+/*---------MEDIA QUERIES---------*/
+
+@media  (max-width: 991px) {
+    .hidden{
+        display:none;
+    }
+}
+  
+  

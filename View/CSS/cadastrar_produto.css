@@ -1,0 +1,237 @@
+/*-------GLOBAL--------*/
+
+
+:root {
+    --main-background-color:#F6F6F6;
+    --main-orange:#ED7D2B;
+    --main-medium-blue:#2B478B;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color:var(--main-background-color) !important;
+    /* position: relative; */
+    
+}
+
+html {
+    font-size: 62.5%;
+}
+
+.container{
+    /* position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); */
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.hidden{
+    visibility: hidden;
+}
+/*-------LINKS--------*/
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+    background-color:var(--main-orange);
+    color: white !important;
+    opacity: 0.9;
+}
+
+a:active {
+    text-decoration: underline;
+}
+
+a{
+    color:black !important;
+}
+
+/*---------NAVBAR---------*/
+
+#navbar{
+    background-color:var(--main-orange);
+}
+#navbar img{
+    width:30rem;
+    max-width: 100%;
+    padding: 10px 20px;
+}
+
+
+/*---------TITULO---------*/
+.title{
+    text-align:center;
+    opacity: 0.9;
+    padding-top: 10px;
+    color:var(--main-orange);
+}
+
+/*---------FORM---------*/
+.form-box{
+    width:400px;
+    
+    background-color:white;
+
+    padding: 20px;
+    font-size:1.8rem;
+}
+
+select{
+    appearance: none;
+    margin-bottom: 30px !important;
+}
+select.minimal {
+    background-image:
+      linear-gradient(45deg, transparent 50%, gray 50%),
+      linear-gradient(135deg, gray 50%, transparent 50%),
+      linear-gradient(to right, #ccc, #ccc);
+    background-position:
+      calc(100% - 20px) calc(1em + 2px),
+      calc(100% - 15px) calc(1em + 2px),
+      calc(100% - 2.5em) 0.5em;
+    background-size:
+      5px 5px,
+      5px 5px,
+      1px 1.5em;
+    background-repeat: no-repeat;
+  }
+  
+  select.minimal:focus {
+    background-image:
+      linear-gradient(45deg, green 50%, transparent 50%),
+      linear-gradient(135deg, transparent 50%, green 50%),
+      linear-gradient(to right, #ccc, #ccc);
+    background-position:
+      calc(100% - 15px) 1em,
+      calc(100% - 20px) 1em,
+      calc(100% - 2.5em) 0.5em;
+    background-size:
+      5px 5px,
+      5px 5px,
+      1px 1.5em;
+    background-repeat: no-repeat;
+    border-color: green;
+    outline: 0;
+  }
+  
+  
+  select:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 #000;
+  }
+
+input[type=text],input[type=email],input[type=password],select{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 50px;
+    box-sizing: border-box;
+    outline:none;
+}
+
+input[type=text]:focus,input[type=email]:focus,input[type=password]:focus{
+    box-shadow: 0 0 3pt 2pt var(--main-medium-blue);
+}
+
+input[type=submit],.btn-cancelar{
+    width: 40%;
+    color:white;
+    padding: 14px 20px;
+    margin: 8px 15px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    text-align: center;
+}
+
+input[type=submit]:hover {
+    opacity: 0.9;
+}
+
+/*FILE INPUT*/
+input:focus, textarea:focus, select:focus{
+    outline: none;
+}
+
+.inputfile {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.inputfile + label {
+    font-size: 2rem;
+    font-weight: 400;
+    color: white;
+    background-color: var(--main-orange);
+    opacity: 0.9;
+    display: inline-block;
+    cursor: pointer; /* "hand" cursor */
+    border-radius: 50px;
+    padding:14px 20px;
+    
+}
+
+.inputfile:focus + label,
+.inputfile + label:hover {
+    opacity: 1;
+}
+
+.inputfile:focus + label {
+	/* outline: 1px dotted #000; */
+	outline: -webkit-focus-ring-color auto 5px;
+}
+
+#label-file{
+    margin:8px 100px;
+}
+/*---------BOTÕES---------*/
+.buttons{
+    display: flex;
+    justify-content:center;
+}
+
+.btn-cancelar{
+    border:2px solid var(--main-orange);
+}
+
+.medium-blue{
+    background-color: var(--main-medium-blue);
+}
+
+/*---------MEDIA QUERIES---------*/
+
+
+.hidden{
+    display:none;
+}
+
+#choice{
+    -webkit-transition: opacity .5s ease-in-out;
+    -moz-transition: opacity .5s ease-in-out;
+    -ms-transition: opacity .5s ease-in-out;
+    -o-transition: opacity .5s ease-in-out;
+    transition: opacity .5s ease-in-out;
+    /* opacity: 1; */
+}
