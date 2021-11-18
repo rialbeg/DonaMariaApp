@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="../CSS/alunoDashboard.css" />
+    <link rel="stylesheet" href="View/CSS/alunoDashboard.css" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -20,9 +20,9 @@
   <body>
     <header >
       <nav id="navbar">
-        <a href="../index.html">
+        <a href="Home">
           <img
-          src="../images/logo-nome.png"
+          src="View/images/logo-nome.png"
           alt="Dona Maria Cantina Escolar"
           id="logo-nome"
         />
@@ -75,7 +75,7 @@
           <hr class="thin-line" />
           <div class="produtos">
             <div class="produto">
-              <img src="../images/produtos/enrroladinho-misto.jpg" alt="Alvo Dumbledore" />
+              <img src="View/images/produtos/enrroladinho-misto.jpg" alt="Alvo Dumbledore" />
               <div class="produto-text">
                 <h2>Enroladinho</h2>
                 <h5>Misto</h5>
@@ -86,7 +86,7 @@
               </a>
             </div>
             <div class="produto">
-              <img src="../images/produtos/donuts.jpg" alt="Alvo Dumbledore" />
+              <img src="View/images/produtos/donuts.jpg" alt="Alvo Dumbledore" />
               <div class="produto-text">
                 <h2>Donuts</h2>
                 <h5>01 unidade</h5>
@@ -97,7 +97,7 @@
               </a>
             </div>
             <div class="produto">
-              <img src="../images/produtos/sanduiche-de-presunto.jpg" alt="Alvo Dumbledore" />
+              <img src="View/images/produtos/sanduiche-de-presunto.jpg" alt="Alvo Dumbledore" />
               <div class="produto-text">
                 <h2>Sanduiche de Presunto</h2>
                 <h5>15 Kg</h5>
@@ -116,7 +116,7 @@
           <hr class="thin-line" />
           <div class="produtos">
             <div class="produto">
-              <img src="../images/produtos/coca-cola.png" alt="Alvo Dumbledore" />
+              <img src="View/images/produtos/coca-cola.png" alt="Alvo Dumbledore" />
               <div class="produto-text">
                 <h2>Coca-Cola</h2>
                 <h4>350 ml</h4>
@@ -127,7 +127,7 @@
               </a>
             </div>
             <div class="produto">
-              <img src="../images/produtos/duff.jpg" alt="Alvo Dumbledore" />
+              <img src="View/images/produtos/duff.jpg" alt="Alvo Dumbledore" />
               <div class="produto-text">
                 <h2>Duff</h2>
                 <h4>350 ml</h4>
@@ -138,7 +138,7 @@
               </a>
             </div>
             <div class="produto">
-              <img src="../images/produtos/refresco.png" alt="Alvo Dumbledore" />
+              <img src="View/images/produtos/refresco.png" alt="Alvo Dumbledore" />
               <div class="produto-text">
                 <h2>Refresco de groselha</h2>
                 <h4>Feito de tamarindo, sabor limão</h4>
@@ -197,6 +197,6 @@
       src="https://kit.fontawesome.com/ffb9df773d.js"
       crossorigin="anonymous"
     ></script>
-    <script src="../JS/alunoDashboard.js"></script>
+    <script src="View/JS/alunoDashboard.js"></script>
   </body>
 </html>

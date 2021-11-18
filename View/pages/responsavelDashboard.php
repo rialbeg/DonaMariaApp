@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="../CSS/responsavelDashboad.css" />
+    <link rel="stylesheet" href="View/CSS/responsavelDashboad.css" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -22,7 +22,7 @@
       <nav id="navbar">
         <a href="../index.html">
           <img
-          src="../images/logo-nome.png"
+          src="View/images/logo-nome.png"
           alt="Dona Maria Cantina Escolar"
           id="logo-nome"
         />
@@ -50,7 +50,7 @@
           <a href="./cadastrar_aluno.html" class="options">+ Novo Aluno</a>
           <div class="alunos">
             <div class="aluno">
-              <img src="../images/Bart_Simpson.png" alt="Alvo Dumbledore" />
+              <img src="View/images/Bart_Simpson.png" alt="Alvo Dumbledore" />
               <div class="aluno-text">
                 <h2>Bartholomew JoJo Simpson</h2>
                 <div class="aluno-subtitle">
@@ -73,7 +73,7 @@
               <a href="#delete-modal" class="close1">X</a>
             </div>
             <div class="aluno">
-              <img src="../images/Lisa_Simpson.jpg" alt="Alvo Dumbledore" />
+              <img src="View/images/Lisa_Simpson.jpg" alt="Alvo Dumbledore" />
               <div class="aluno-text">
                 <h2>Lisa Marie Simpson</h2>
                 <div class="aluno-subtitle">
@@ -96,7 +96,7 @@
               <a href="#delete-modal" class="close1">X</a>
             </div>
             <div class="aluno">
-              <img src="../images/maggie_simpson.png" alt="Alvo Dumbledore" />
+              <img src="View/images/maggie_simpson.png" alt="Alvo Dumbledore" />
               <div class="aluno-text">
                 <h2>Margareth J. A. Bouvier-Simpson</h2>
                 <div class="aluno-subtitle">
@@ -152,6 +152,6 @@
       src="https://kit.fontawesome.com/ffb9df773d.js"
       crossorigin="anonymous"
     ></script>
-    <script src="../JS/responsavelDashboard.js"></script>
+    <script src="View/JS/responsavelDashboard.js"></script>
   </body>
 </html>

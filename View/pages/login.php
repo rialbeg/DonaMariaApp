@@ -12,7 +12,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600&display=swap" rel="stylesheet">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-  
+    <style>
+        label.error {
+            color: red;
+        }
+    </style>
   <script>
         function validateForm() {
             var usuario = document.forms["login"]["usuario"].value;
@@ -42,11 +46,11 @@
     }
     var usuario = document.forms["login"]["usuario"].value;
     if (usuario == "aluno") {
-        window.location = './alunoDashboard.html'
+        window.location = 'alunodash'
     }
     var usuario = document.forms["login"]["usuario"].value;
     if (usuario == "resp") {
-        window.location = './responsavelDashboard.html'
+        window.location = 'responsaveldash'
     }
 }
 </script>
@@ -61,21 +65,26 @@
     </nav>
 
     <div class="login-box">
-        <form name="login" method="post">
+        <form name="login" method="post" action="FazerLogin" id="login">
             <label for="usuario">Usuário</label>
-            <input type="text" id="usuario" name="usuario" placeholder="Seu usuário...">
-        
+            <input type="text" id="usuario" name="userlogin" placeholder="Seu usuário..." maxlength="30" >
+
             <label for="senha">Senha</label>
-            <input type="password" id="senha" name="senha" placeholder="Sua senha...">
+            <input type="password" id="senha" name="senha" placeholder="Sua senha..." maxlength="15" >
         
-            <input type="button" value="Login" onClick="clickedButton()">
+            <input type="submit" value="Login">
+            <!-- <input type="button" value="Login" onClick="clickedButton()"> -->
         </form>
         <a href="#" class="login-link">Esqueçeu a senha?</a>
         <a href="#" class="login-link">Não tenho conta.</a>
     </div>
 
     <script src="https://kit.fontawesome.com/ffb9df773d.js" crossorigin="anonymous"></script>
-    <script src="./JS/index.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    <!-- Inclusão do jQuery-->
+    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+    <!-- Inclusão do Plugin jQuery Validation-->
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
+    <script src="View/JS/validate.js"></script>   
 </body>
 </html>

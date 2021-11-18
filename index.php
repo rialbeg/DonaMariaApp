@@ -24,6 +24,21 @@
                 $controlador = new ControladorAdminDashboard();
                 $controlador->processaRequisicao();
                 break;
+            case "RESPONSAVELDASH":    
+                require "Controller/ControladorResponsavelDashboard.php";    
+                $controlador = new ControladorResponsavelDashboard();
+                $controlador->processaRequisicao();
+                break;
+            case "ALUNODASH":    
+                require "Controller/ControladorAlunoDashboard.php";    
+                $controlador = new ControladorAlunoDashboard();
+                $controlador->processaRequisicao();
+                break;
+            case "FAZERLOGIN":    
+                require "Controller/ControladorFazerLogin.php";    
+                $controlador = new ControladorFazerLogin();
+                $controlador->processaRequisicao();
+                break;
             default:
                 require "Controller/ControladorHome.php";    
                 $controlador = new ControladorHome();
