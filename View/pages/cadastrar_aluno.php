@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="../CSS/cadastrar_aluno.css">
+    <link rel="stylesheet" href="VIew/CSS/cadastrar_aluno.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -64,7 +64,7 @@
 <body>
     <nav id="navbar">
         <a href="../index.html">
-            <img src="../images/logo-nome.png" alt="Dona Maria Cantina Escolar" id="logo-nome">
+            <img src="View/images/logo-nome.png" alt="Dona Maria Cantina Escolar" id="logo-nome">
         </a>
     </nav>
 

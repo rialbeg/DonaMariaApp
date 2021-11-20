@@ -16,23 +16,47 @@
                 $stmt->execute();
 
                 return $stmt->fetch(PDO::FETCH_ASSOC);
-                print("<pre>".print_r($result,true)."</pre>");
+                
             }catch(PDOException $e){
                 echo $e->getMessage();
                 return null;
             }
         }
+
         public function fazerLogin($user){
+            session_start();
             $result = $this->buscarUsuario($user);
             if($result){
-                if(password_verify($user->getSenha(), $result['senha']))
-                    echo 'usuario autenticado';
-                else
-                    echo 'erro au autenticar usuario';
-                print("<pre>".print_r($user,true)."</pre>");
+                if(password_verify($user->getSenha(), $result['senha'])){
+
+                    $_SESSION['autenticado'] = true;
+                    $_SESSION['nivelacesso'] = $result['nivelacesso'];
+
+                    if(isset($_SESSION['errLogin']))
+                        unset($_SESSION['errLogin']);
+                    if(isset($_SESSION['errSenha']))
+                        unset($_SESSION['errSenha']);
+                    
+                    switch ($result['nivelacesso']) {
+                        case 'A':
+                            header('Location:AdminDash', true,302);
+                            break;
+                        case 'B':
+                            header('Location:ResponsavelDash', true,302);
+                            break;
+                        case 'C':
+                            header('Location:AlunoDash', true,302);
+                            break;
+                    }
+                }
+                else{
+                    $_SESSION['errSenha'] = true;
+                    header('Location:Login', true,302);
+                }
             }
-            else
-                echo 'o usuario não está cadastrado';
-            print("<pre>".print_r($result,true)."</pre>");
+            else{
+                $_SESSION['errLogin'] = true;
+                header('Location:Login', true,302);
+            }
         }
     }

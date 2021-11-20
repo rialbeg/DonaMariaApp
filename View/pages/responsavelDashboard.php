@@ -47,7 +47,7 @@
         <div id="Alunos">
           <h2 class="titleTab">Alunos</h2>
           <hr class="thin-line" />
-          <a href="./cadastrar_aluno.html" class="options">+ Novo Aluno</a>
+          <a href="cadastroaluno" class="options">+ Novo Aluno</a>
           <div class="alunos">
             <div class="aluno">
               <img src="View/images/Bart_Simpson.png" alt="Alvo Dumbledore" />

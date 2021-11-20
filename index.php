@@ -19,14 +19,34 @@
                 $controlador = new ControladorLogin();
                 $controlador->processaRequisicao();
                 break;
+            case "LOGOFF":    
+                require "Controller/ControladorLogoff.php";    
+                $controlador = new ControladorLogoff();
+                $controlador->processaRequisicao();
+                break;
             case "ADMINDASH":    
                 require "Controller/ControladorAdminDashboard.php";    
                 $controlador = new ControladorAdminDashboard();
                 $controlador->processaRequisicao();
                 break;
+            case "CADASTROPRODUTO":    
+                require "Controller/ControladorCadastrarProduto.php";    
+                $controlador = new ControladorCadastrarProduto();
+                $controlador->processaRequisicao();
+                break;
+            case "CADASTRORESPONSAVEL":    
+                require "Controller/ControladorCadastrarResponsavel.php";    
+                $controlador = new ControladorCadastrarResponsavel();
+                $controlador->processaRequisicao();
+                break;
             case "RESPONSAVELDASH":    
                 require "Controller/ControladorResponsavelDashboard.php";    
                 $controlador = new ControladorResponsavelDashboard();
+                $controlador->processaRequisicao();
+                break;
+            case "CADASTROALUNO":    
+                require "Controller/ControladorCadastrarAluno.php";    
+                $controlador = new ControladorCadastrarAluno();
                 $controlador->processaRequisicao();
                 break;
             case "ALUNODASH":    

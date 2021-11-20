@@ -1,3 +1,14 @@
+<?php 
+    // session_start();
+    // require "Model/Validation.php";
+    // Validation::validaSessao();
+    // require "Controller/ControladorValidaSessao.php";
+    // $validacao = new ControladorValidaSessao();
+    // $validacao->validarSessao();
+    // print("<pre>".print_r($_SESSION,true)."</pre>");
+    // unset($_SESSION);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>

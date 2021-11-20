@@ -1,3 +1,12 @@
+<?php 
+    // require "Model/Validation.php";
+    // Validation::validaSessao();
+    // require "Controller/ControladorValidaSessao.php";
+    // $validacao = new ControladorValidaSessao();
+    // $validacao->validarSessao();
+  print("<pre>".print_r($_SESSION,true)."</pre>");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -30,8 +39,8 @@
         <!-- <ul class="navlist">
           <li class="navitem">Home</li>
           <li class="navitem">Sobre Nós</li>
-        </ul>
-        <div class="btn-login">Login</div> -->
+        </ul> -->
+        <a href="Logoff"  class="btn-login">Login</a> 
       </nav>
     </header>
 
@@ -81,7 +90,7 @@
                     <input type="submit" value="Pesquisar">
                   </form>
                   <div>
-                    <a href="./cadastrar_produto.html" class="options">+ Novo Produto</a>
+                    <a href="cadastroproduto" class="options">+ Novo Produto</a>
                     <a href="#desbloquear-modal" class="options">+Desbloquear</a>
                   </div>
                 </div>
@@ -347,7 +356,7 @@
                     <input type="submit" value="Pesquisar">
                   </form>
                   <div>
-                    <a href="./cadastrar_responsavel.html" class="options">+ Novo Responsável</a>
+                    <a href="cadastroresponsavel" class="options">+ Novo Responsável</a>
                     <!-- <a href="#" class="options">Saldo</a> -->
                   </div>
                 </div>

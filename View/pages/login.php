@@ -1,3 +1,15 @@
+<?php 
+    // session_start();
+    // require "Model/Validation.php";
+    // Validation::validaSessao();
+
+    // require "Controller/ControladorValidaSessao.php";
+    // $validacao = new ControladorValidaSessao();
+    // $validacao->validarSessao();
+    
+    // print("<pre>".print_r($_SESSION,true)."</pre>");
+    // unset($_SESSION);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +29,7 @@
             color: red;
         }
     </style>
-  <script>
+    <script>
         function validateForm() {
             var usuario = document.forms["login"]["usuario"].value;
             if (usuario == "") {
@@ -68,7 +80,12 @@
         <form name="login" method="post" action="FazerLogin" id="login">
             <label for="usuario">Usuário</label>
             <input type="text" id="usuario" name="userlogin" placeholder="Seu usuário..." maxlength="30" >
+            <!-- <?php if(isset($_GET['errSenha'])): ?>
 
+                <div style="color:red">Login inválido!</div> 
+            <?php endif; ?>     -->
+            
+            
             <label for="senha">Senha</label>
             <input type="password" id="senha" name="senha" placeholder="Sua senha..." maxlength="15" >
         
