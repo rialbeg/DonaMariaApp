@@ -49,10 +49,12 @@
     </nav>
 
     <!-- <div class="container"> -->
-        <form name="produto_form" class="container" action="/action_page.php" onsubmit="return validateForm()" method="post" required>
+        <form id="produto_form" name="produto_form" class="container" action="incluirproduto" 
+                onsubmit="return validateForm()" method="post" 
+                enctype="multipart/form-data" required>
             <div class="form-box">
                     <h1 class="title">
-                        Alimentos
+                        Produtos
                     </h1>
                     <label for="codigo">Código</label>
                     <input type="text" id="codigo" name="codigo">
@@ -84,8 +86,8 @@
                     <!-- <label id="foto" for="foto">Enviar Foto</label>
                     <input type="file" name="produtoImg" id="produtoImg"> -->
                     
-                    <input type="file" name="file" id="file" class="inputfile" />
-                    <label id="label-file" for="file">Choose a file</label>
+                    <input type="file" name="imagem" id="imagem" class="inputfile" />
+                    <label id="label-file" for="imagem">Imagem</label>
 
                     <div class="buttons">
                         <a href="javascript:history.back()" class="btn-cancelar">Cancelar</a>
@@ -100,7 +102,7 @@
 
 
     <script src="https://kit.fontawesome.com/ffb9df773d.js" crossorigin="anonymous"></script>
-    <script src="../JS/cadastrar_produto.js"></script>
+    <script src="View/JS/cadastrar_produto.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
 </body>
 </html>

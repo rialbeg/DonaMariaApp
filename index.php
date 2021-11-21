@@ -34,6 +34,11 @@
                 $controlador = new ControladorCadastrarProduto();
                 $controlador->processaRequisicao();
                 break;
+            case "INCLUIRPRODUTO":    
+                require "Controller/ControladorIncluirProduto.php";    
+                $controlador = new ControladorIncluirProduto();
+                $controlador->processaRequisicao();
+                break;
             case "CADASTRORESPONSAVEL":    
                 require "Controller/ControladorCadastrarResponsavel.php";    
                 $controlador = new ControladorCadastrarResponsavel();

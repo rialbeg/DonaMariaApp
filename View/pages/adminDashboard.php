@@ -4,7 +4,14 @@
     // require "Controller/ControladorValidaSessao.php";
     // $validacao = new ControladorValidaSessao();
     // $validacao->validarSessao();
-  print("<pre>".print_r($_SESSION,true)."</pre>");
+  // print("<pre>".print_r($_SESSION,true)."</pre>");
+  // print("<pre>".print_r($listaProdutos,true)."</pre>");
+  // print("<pre>".print_r($prod,true)."</pre>");
+  // $class_methods = get_class_methods($prod);
+
+  // foreach ($class_methods as $method_name) {
+  //     echo "$method_name\n";
+  // }
 ?>
 
 <!DOCTYPE html>
@@ -23,25 +30,13 @@
       rel="stylesheet"
     />
 
+    
     <title>Dona Maria</title>
   </head>
 
   <body>
     <header >
-      <nav id="navbar">
-        <a id="logo-link" href="Home"> 
-          <img
-            src="View/images/logo-nome.png"
-            alt="Dona Maria Cantina Escolar"
-            id="logo-nome"
-          />
-        </a>  
-        <!-- <ul class="navlist">
-          <li class="navitem">Home</li>
-          <li class="navitem">Sobre Nós</li>
-        </ul> -->
-        <a href="Logoff"  class="btn-login">Login</a> 
-      </nav>
+      <?php require "navbar.php";?>
     </header>
 
     <main id="main">
@@ -107,15 +102,25 @@
                     <th>Editar</th>
                     <th>Excluir</th>
                 </tr>
-                
+                <?php for($i=0;$i<count($listaProdutos);$i++): ?>
                 <tr>
-                    <td>01</td>
-                    <td>Comida</td>
-                    <td>Hamburguer</td>
-                    <td>Pão,hamburguers,queijo,salada</td>
-                    <td>x</td>
-                    <td>Foto</td>
-                    <td>R$ 5,00</td>
+                    <td><?= $listaProdutos[$i]->getCodigo(); ?></td>
+                    <td><?= $listaProdutos[$i]->getTipo(); ?></td>
+                    <td><?= $listaProdutos[$i]->getNome(); ?></td>
+                    <td>
+                        <?= 
+                              $listaProdutos[$i]->buscarIngredientePorId() ? 
+                              $listaProdutos[$i]->buscarIngredientePorId() : "x";
+                        ?>
+                    </td>
+                    <td>
+                      <?= 
+                            $listaProdutos[$i]->getFornecedor() ?
+                            $listaProdutos[$i]->getFornecedor() : "x"; 
+                      ?>
+                    </td>
+                    <td><img width="50px" src=<?= $listaProdutos[$i]->getCaminhoImagem()?> alt=""></td>
+                    <td><?= $listaProdutos[$i]->getPreco(); ?></td>
                     <td>
                       Sim 
                     </td>
@@ -131,77 +136,7 @@
                       
                     </td>
                 </tr> <!--******************** -->
-                <tr>
-                    <td>01</td>
-                    <td>Comida</td>
-                    <td>Hamburguer</td>
-                    <td>Pão,hamburguers,queijo,salada</td>
-                    <td>x</td>
-                    <td>Foto</td>
-                    <td>R$ 5,00</td>
-                    <td>
-                      Sim 
-                    </td>
-                    <td>
-                      <a href="./cadastrar_produto.html">
-                        <i class="fas fa-pencil-alt"></i>
-                      </a>  
-                    </td>
-                    <td>
-                      <a href="#delete-modal">
-                        <i class="fas fa-minus-circle"></i>
-                      </a> 
-                      
-                    </td>
-                </tr> <!--******************** -->
-                <tr>
-                    <td>01</td>
-                    <td>Comida</td>
-                    <td>Hamburguer</td>
-                    <td>Pão,hamburguers,queijo,salada</td>
-                    <td>x</td>
-                    <td>Foto</td>
-                    <td>R$ 5,00</td>
-                    <td>
-                      Sim 
-                    </td>
-                    <td>
-                      <a href="./cadastrar_produto.html">
-                        <i class="fas fa-pencil-alt"></i>
-                      </a>  
-                    </td>
-                    <td>
-                      <a href="#delete-modal">
-                        <i class="fas fa-minus-circle"></i>
-                      </a> 
-                      
-                    </td>
-                </tr> <!--******************** -->
-                <tr>
-                    <td>01</td>
-                    <td>Comida</td>
-                    <td>Hamburguer</td>
-                    <td>Pão,hamburguers,queijo,salada</td>
-                    <td>x</td>
-                    <td>Foto</td>
-                    <td>R$ 5,00</td>
-                    <td>
-                      Sim 
-                    </td>
-                    <td>
-                      <a href="./cadastrar_produto.html">
-                        <i class="fas fa-pencil-alt"></i>
-                      </a>  
-                    </td>
-                    <td>
-                      <a href="#delete-modal">
-                        <i class="fas fa-minus-circle"></i>
-                      </a> 
-                      
-                    </td>
-                </tr> <!--******************** -->
-                
-                
+                <?php endfor; ?>
               </table>
             </div>
         </div>

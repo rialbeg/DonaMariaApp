@@ -52,7 +52,9 @@
   nav div.btn-login {
     padding-right: 20px;
   }
-
+  a.btn-login{
+    color: white;
+  }
   /*-------LINKS--------*/
 a:link {
   text-decoration: none;
@@ -73,7 +75,7 @@ a:active {
 }
 
 a{
-  color: var(--main-orange) !important;
+  color: var(--main-orange);
 }
 
 a.link-active{

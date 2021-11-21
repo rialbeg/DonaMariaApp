@@ -8,7 +8,7 @@
             if(isset($_SESSION['autenticado']))
             {
                 
-                $nivelA = ['ADMINDASH',"CADASTROPRODUTO","CADASTRORESPONSAVEL"];
+                $nivelA = ['ADMINDASH',"CADASTROPRODUTO","CADASTRORESPONSAVEL","INCLUIRPRODUTO"];
                 $nivelB = ['RESPONSAVELDASH', 'CADASTROALUNO', 'DEPOSITOALUNO'];
                 $nivelC= ['ALUNODASH','COMPRAR'];
                 switch ($_SESSION['nivelacesso']) {
