@@ -27,3 +27,6 @@ function openTab(evt, cityName) {
     if(valor == 'desbloquear')
       submit.value = 'Desbloquear';  
   }
+
+  
+

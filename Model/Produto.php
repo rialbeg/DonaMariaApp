@@ -8,6 +8,7 @@
         private $nome;
         private $caminhoImagem;
         private $fornecedor;
+        private $ingredientes;
         private $preco;
 
 
@@ -70,6 +71,15 @@
             $this->fornecedor = $fornecedor;
         }
 
+        public function getIngredientes()
+        {
+            return $this->ingredientes;
+        }
+
+        public function setIngredientes($ingredientes)
+        {
+            $this->ingredientes = $ingredientes;
+        }
         public function getPreco()
         {
             return $this->preco;
@@ -84,10 +94,27 @@
             $produtoDAO = new ProdutoDAO();
             return $produtoDAO->listarTodosProdutos($this);
         }
+        public function incluirProduto(){
+            $produtoDAO = new ProdutoDAO();
+            return $produtoDAO->incluirProduto($this);
+        }
+        public function pesquisarProduto(){
+            $produtoDAO = new ProdutoDAO();
+            $produtoDAO->pesquisarProduto($this);
+        }
+        public function alterarProduto(){
+            $produtoDAO = new ProdutoDAO();
+            return $produtoDAO->alterarProduto($this);
+        }
+        public function excluirProduto(){
+            $produtoDAO = new ProdutoDAO();
+            return $produtoDAO->excluirProduto($this);
+        }
         public function buscarIngredientePorID(){
             $produtoDAO = new ProdutoDAO();
             return $produtoDAO->buscarIngredientePorID($this->getIdProduto());
         }
 
     
+
     }

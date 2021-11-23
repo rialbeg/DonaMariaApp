@@ -39,6 +39,21 @@
                 $controlador = new ControladorIncluirProduto();
                 $controlador->processaRequisicao();
                 break;
+            case "ALTERARPRODUTO":    
+                require "Controller/ControladorAlterarProduto.php";    
+                $controlador = new ControladorAlterarProduto();
+                $controlador->processaRequisicao();
+                break;
+            case "FORMALTERARPRODUTO":    
+                require "Controller/ControladorFormAlterarProduto.php";    
+                $controlador = new ControladorFormAlterarProduto();
+                $controlador->processaRequisicao();
+                break;
+            case "EXCLUIRPRODUTO":    
+                require "Controller/ControladorExcluirProduto.php";    
+                $controlador = new ControladorExcluirProduto();
+                $controlador->processaRequisicao();
+                break;
             case "CADASTRORESPONSAVEL":    
                 require "Controller/ControladorCadastrarResponsavel.php";    
                 $controlador = new ControladorCadastrarResponsavel();

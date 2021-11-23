@@ -3,7 +3,7 @@
 require_once "IControlador.php";
 require_once "Model/Validation.php";
 require_once "Model/Produto.php";
-class ControladorIncluirProduto implements IControlador{
+class ControladorExcluirProduto implements IControlador{
 
     private $produto;
 
@@ -13,16 +13,14 @@ class ControladorIncluirProduto implements IControlador{
     
     public function processaRequisicao(){
         Validation::validaSessao();
-        $this->produto->setCodigo($_POST["codigo"]);
-        $this->produto->setNome($_POST["nome"]);
-        $this->produto->setTipo($_POST["tipo"]);
-        $this->produto->setFornecedor($_POST["fornecedor"]);
-        $this->produto->setPreco($_POST["preco"]);
-        $this->produto->setCaminhoImagem($_FILES["imagem"]);
-
-        $this->produto->incluirProduto();
-
+        //receber os dados do formulario e setar o objeto
+        $this->produto->setIdProduto($_POST['id']);
+        
+        $this->produto->excluirProduto();
+    
         header('Location:admindash', true,302);
+        
+
         // print("<pre>".print_r($_POST,true)."</pre>");
         // print("<pre>".print_r($_FILES,true)."</pre>");
     }

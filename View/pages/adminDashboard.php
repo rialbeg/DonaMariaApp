@@ -29,11 +29,15 @@
       href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
-
-    
+    <script>
+      function confirma(){
+        return confirm("Confirma a exclusão?");
+        
+      }
+    </script>
     <title>Dona Maria</title>
   </head>
-
+    
   <body>
     <header >
       <?php require "navbar.php";?>
@@ -125,14 +129,16 @@
                       Sim 
                     </td>
                     <td>
-                      <a href="./cadastrar_produto.html">
-                        <i class="fas fa-pencil-alt"></i>
-                      </a>  
+                      <form method="post" action="FormAlterarProduto">
+                        <input type="hidden" name="id" value="<?= $listaProdutos[$i]->getIdProduto();?>">
+                        <input type="submit" class="button"  value= "Alterar">
+                      </form>  
                     </td>
                     <td>
-                      <a href="#delete-modal">
-                        <i class="fas fa-minus-circle"></i>
-                      </a> 
+                    <form method="post" action="ExcluirProduto" onSubmit="return confirma();">
+                      <input type="hidden" name="id" value="<?= $listaProdutos[$i]->getIdProduto();?>">
+                      <input type="submit" class="button button-red" value= "Excluir">
+                    </form>
                       
                     </td>
                 </tr> <!--******************** -->

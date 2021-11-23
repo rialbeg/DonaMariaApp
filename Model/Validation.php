@@ -8,9 +8,14 @@
             if(isset($_SESSION['autenticado']))
             {
                 
-                $nivelA = ['ADMINDASH',"CADASTROPRODUTO","CADASTRORESPONSAVEL","INCLUIRPRODUTO"];
+                $nivelA = ["ADMINDASH","CADASTROPRODUTO","CADASTRORESPONSAVEL",
+                            "INCLUIRPRODUTO","ALTERARPRODUTO","EXCLUIRPRODUTO",
+                            "FORMALTERARPRODUTO"];
+
                 $nivelB = ['RESPONSAVELDASH', 'CADASTROALUNO', 'DEPOSITOALUNO'];
-                $nivelC= ['ALUNODASH','COMPRAR'];
+                
+                $nivelC = ['ALUNODASH','COMPRAR'];
+                
                 switch ($_SESSION['nivelacesso']) {
                     case 'A':
                         if(!in_array($url, $nivelA))

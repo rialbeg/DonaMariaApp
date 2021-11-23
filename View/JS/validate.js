@@ -10,6 +10,7 @@ $("#login").validate({
     }
 });
 
+
 jQuery.extend(jQuery.validator.messages, {
     required: "Campo Obrigatório<br><br>",
     remote: "Please fix this field.",

@@ -38,8 +38,15 @@
               return false;
             }
           }
+            <?php
+                echo "var ingredientes ='$ingredientes';";
+                echo "var fornecedor ='$fornecedor';";
+            ?>
+            // console.log(ingredientes);
+            
+            
     </script>
-
+            
 </head>
 <body>
     <nav id="navbar">
@@ -49,28 +56,34 @@
     </nav>
 
     <!-- <div class="container"> -->
-        <form id="produto_form" name="produto_form" class="container" action="incluirproduto" 
-                onsubmit="return validateForm()" method="post" 
+        <form id="produto_form" name="produto_form" class="container" action="alterarproduto" 
+                method="post"
                 enctype="multipart/form-data" required>
+                <input type="hidden" name="id" value="<?= $idProduto?>">
             <div class="form-box">
                     <h1 class="title">
                         Produtos
                     </h1>
                     <label for="codigo">Código</label>
-                    <input type="text" id="codigo" name="codigo">
+                    <input type="text" id="codigo" name="codigo" value="<?= $codigo ?>">
 
                     <label for="nome">Nome</label>
-                    <input type="text" id="nome" name="nome">
+                    <input type="text" id="nome" name="nome" value="<?= $nome ?>">
 
                     <label for="alimentos">Tipo de Alimento</label>
-                    <select id="alimentos" class="minimal" name="tipo" onchange="yesnoCheck(this)">
+                    <select id="alimentos" class="minimal" name="tipo" onchange="yesnoCheck(this,ingredientes,fornecedor)">
                         <option value="Comida">Comida</option>
                         <option value="Bebida">Bebida</option>
                     </select>
 
                     <div id="choice">
-                        <label  for="ingredientes">Ingredientes</label>
-                        <input type="text" id="ingredientes" name="ingredientes">
+                        <?php if($tipo == "Comida"):?>
+                            <label  for="ingredientes">Ingredientes</label>
+                            <input type="text" id="ingredientes" name="ingredientes" value="<?= $ingredientes ?>">
+                        <?php elseif($tipo == "Bebida"): ?>
+                            <label id="label-fornecedor" for="fornecedor">Fornecedor</label>
+                            <input type="text" id="fornecedor" name="fornecedor" value="<?= $fornecedor ?>">
+                        <?php endif; ?>
                     </div>
                     <!-- <label id="label-ingredientes" for="ingredientes">Ingredientes</label>
                     <input type="text" id="ingredientes" name="ingredientes">
@@ -81,7 +94,7 @@
                     <!-- <input type="text" id="foto" name="foto"> -->
                     
                     <label for="preco">Preço</label>
-                    <input type="text" id="preco" name="preco">
+                    <input type="text" id="preco" name="preco" value="<?= $preco ?>">
                     
                     <!-- <label id="foto" for="foto">Enviar Foto</label>
                     <input type="file" name="produtoImg" id="produtoImg"> -->
@@ -100,9 +113,14 @@
 
 
 
-
+    <script>
+        <?php if($tipo === 'Bebida'): ?>
+                document.getElementById("alimentos").selectedIndex = 1;
+        <?php endif;?>
+    </script>
     <script src="https://kit.fontawesome.com/ffb9df773d.js" crossorigin="anonymous"></script>
     <script src="View/JS/cadastrar_produto.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    
 </body>
 </html>
