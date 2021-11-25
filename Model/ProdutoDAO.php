@@ -1,6 +1,6 @@
 <?php 
 
-require "Conexao.php";
+require_once "Conexao.php";
 class ProdutoDAO{
     public function buscarIngredientePorID($id){
         try{
@@ -123,7 +123,7 @@ class ProdutoDAO{
 
                 }
             }
-
+            
         }
         catch(PDOException $e){
             echo "entrou no catch".$e->getmessage();
@@ -135,25 +135,85 @@ class ProdutoDAO{
         try{
             $minhaConexao = Conexao::getConexao();
 
+           
+           
             //montando a queryResult
             print("<pre>".print_r($produto,true)."</pre>");
-            $sql = "UPDATE PRODUTO set ";
-            $sql .= "nome=:nome, edicao=:edicao, ano=:ano "; 
-            $sql .=  "where IDPRODUTO = :id";      
-            // $stmt = $minhaConexao->prepare();
-            // $stmt->bindParam("codigo",$codigo);
-            // $stmt->bindParam("nome",$nome);
-            // $stmt->bindParam("edicao",$edicao);
-            // $stmt->bindParam("ano",$ano);
-            // $codigo = $liv->getCodigo();
-            // $nome = $liv->getTitulo();
-            // $edicao = $liv->getEdicao();
-            // $ano = $liv->getAno();
-            // $stmt->execute();
+            $sql = "UPDATE PRODUTO
+                    SET CODIGO=:codigo, NOME=:nome, FORNECEDOR=:fornecedor, PRECO=:preco 
+                    WHERE IDPRODUTO = :id";
             
-         }
+            // echo $sql;
+            $stmt = $minhaConexao->prepare($sql);
+            $stmt->bindParam("codigo",$codigo);
+            $stmt->bindParam("nome",$nome);
+            $stmt->bindParam("fornecedor",$fornecedor);
+            $stmt->bindParam("preco",$preco);
+            $stmt->bindParam("id",$id);
+
+            $tipo = $produto->getTipo();
+            $codigo = $produto->getCodigo();
+            $nome = $produto->getNome();
+            $fornecedor = $produto->getFornecedor();
+            $preco = $produto->getPreco();
+            $id = $produto->getIdProduto();
+            $ingredientesNovos = explode(',', $produto->getIngredientes());
+
+            $stmt->execute();
+            print("<pre>".print_r($ingredientesNovos,true)."</pre>");
+
+            //alterando os ingredientes
+            
+                if($tipo === "Comida"){
+                    $stmt = $minhaConexao->prepare("SELECT * FROM INGREDIENTE 
+                    WHERE ID_PRODUTO = :id");
+                    $stmt->bindParam("id",$id);
+                    $id = $produto->getIdProduto();
+                    $stmt->execute();
+                    $ingredientesAntigos = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+                    $i = 0;
+                    $rowCount = $stmt->rowCount();
+                    echo $i;
+                    while($i < $rowCount){
+
+                        $stmt = $minhaConexao->prepare("UPDATE INGREDIENTE SET INGREDIENTE=:ingredienteNovo 
+                                                WHERE INGREDIENTE = :ingredienteAntigo");
+                        // $stmt->bindParam("id",$id);
+                        $stmt->bindParam("ingredienteNovo",$ingredienteNovo);
+                        $stmt->bindParam("ingredienteAntigo",$ingredienteAntigo);
+
+                        // $id = $produto->getIdProduto();
+                        $ingredienteNovo =  $ingredientesNovos[$i];
+                        $ingredienteAntigo = $ingredientesAntigos[$i]['INGREDIENTE'];
+                        $stmt->execute();
+                        $i++;
+                    }
+                }
+            
+            $imagem = $produto->getCaminhoImagem();
+            if($imagem != NULL) {
+                // echo "entrou no if da imagem !=null";
+                //defini o nome do novo arquivo, que será o id gerado para o livro
+                $nomeFinal = 'View/images/produtos/' . $id. '.jpg';
+                //move o arquivo para a pasta atual com esse novo nome
+                if (move_uploaded_file($imagem['tmp_name'], $nomeFinal)) {
+                    // echo "Copiou a imagem";
+                //atualiza o banco de dados para guardar o nome do arquivo gerado.
+                $sql = "UPDATE PRODUTO
+                SET CAMINHOIMAGEM = :nomeImagem
+                WHERE IDPRODUTO = :id";
+                $stmt = $minhaConexao->prepare($sql);
+                $stmt->bindParam("nomeImagem",$nomeFinal);
+                $stmt->bindParam("id",$id);
+                $stmt->execute();
+                
+                // return $last_id;
+                }
+            }
+        }
          catch(PDOException $e){
-             //echo "entrou no catch".$e->getmessage();
+             echo "error".$e->getmessage();
             
          }
     }

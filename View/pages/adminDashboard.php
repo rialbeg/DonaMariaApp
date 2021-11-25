@@ -311,97 +311,27 @@
                     <th>Editar</th>
                     <th>Excluir</th>
                 </tr>
+                <?php for($i=0;$i<count($listaResponsaveis);$i++): ?>
+                <tr>
+                    <td><?= $listaResponsaveis[$i]->getNome()?></td>
+                    <td><?= $listaResponsaveis[$i]->getCpf()?></td>
+                    <td><?= $listaResponsaveis[$i]->getEmail()?></td>
+                    <td><?= $listaResponsaveis[$i]->getTelefone()?></td>
+                    <td><?= $listaResponsaveis[$i]->getUsuario()->getUserLogin()?></td>
+                    <td>
+                      <a href="./cadastrar_responsavel.html">
+                        <i class="fas fa-pencil-alt"></i>
+                      </a>  
+                    </td>
+                    <td>
+                      <a href="#delete-modal">
+                        <i class="fas fa-minus-circle"></i>
+                      </a> 
+                      
+                    </td>
+                </tr>
+                <?php endfor;?>
                 
-                <tr>
-                    <td>Jorge Rivera</td>
-                    <td>05898756523</td>
-                    <td>11993579899</td>
-                    <td>jorge_rivera@gmail.com</td>
-                    <td>jorgeRivera83</td>
-                    <td>
-                      <a href="./cadastrar_responsavel.html">
-                        <i class="fas fa-pencil-alt"></i>
-                      </a>  
-                    </td>
-                    <td>
-                      <a href="#delete-modal">
-                        <i class="fas fa-minus-circle"></i>
-                      </a> 
-                      
-                    </td>
-                </tr>
-                <tr>
-                    <td>Jorge Rivera</td>
-                    <td>05898756523</td>
-                    <td>11993579899</td>
-                    <td>jorge_rivera@gmail.com</td>
-                    <td>jorgeRivera83</td>
-                    <td>
-                      <a href="./cadastrar_responsavel.html">
-                        <i class="fas fa-pencil-alt"></i>
-                      </a>  
-                    </td>
-                    <td>
-                      <a href="#delete-modal">
-                        <i class="fas fa-minus-circle"></i>
-                      </a> 
-                      
-                    </td>
-                </tr>
-                <tr>
-                    <td>Jorge Rivera</td>
-                    <td>05898756523</td>
-                    <td>11993579899</td>
-                    <td>jorge_rivera@gmail.com</td>
-                    <td>jorgeRivera83</td>
-                    <td>
-                      <a href="./cadastrar_responsavel.html">
-                        <i class="fas fa-pencil-alt"></i>
-                      </a>  
-                    </td>
-                    <td>
-                      <a href="#delete-modal">
-                        <i class="fas fa-minus-circle"></i>
-                      </a> 
-                      
-                    </td>
-                </tr>
-                <tr>
-                    <td>Jorge Rivera</td>
-                    <td>05898756523</td>
-                    <td>11993579899</td>
-                    <td>jorge_rivera@gmail.com</td>
-                    <td>jorgeRivera83</td>
-                    <td>
-                      <a href="./cadastrar_responsavel.html">
-                        <i class="fas fa-pencil-alt"></i>
-                      </a>  
-                    </td>
-                    <td>
-                      <a href="#delete-modal">
-                        <i class="fas fa-minus-circle"></i>
-                      </a> 
-                      
-                    </td>
-                </tr>
-                <tr>
-                    <td>Jorge Rivera</td>
-                    <td>05898756523</td>
-                    <td>11993579899</td>
-                    <td>jorge_rivera@gmail.com</td>
-                    <td>jorgeRivera83</td>
-                    <td>
-                      <a href="./cadastrar_responsavel.html">
-                        <i class="fas fa-pencil-alt"></i>
-                      </a>  
-                    </td>
-                    <td>
-                      <a href="#delete-modal">
-                        <i class="fas fa-minus-circle"></i>
-                      </a> 
-                      
-                    </td>
-                </tr>
                 
                 
             </table>

@@ -26,6 +26,7 @@ class ControladorAlterarProduto implements IControlador{
 
         $this->produto->alterarProduto();
         
+        header('Location:admindash',true,302);
         // print("<pre>".print_r($this->produto,true)."</pre>");
         // print("<pre>".print_r($_POST,true)."</pre>");
         // print("<pre>".print_r($_FILES,true)."</pre>");

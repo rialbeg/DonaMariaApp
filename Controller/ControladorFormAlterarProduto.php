@@ -15,7 +15,7 @@ class ControladorFormAlterarProduto implements IControlador{
         Validation::validaSessao();
         
         $this->produto->setIdProduto($_POST['id']);
-        $ingredientes = $this->produto->buscarIngredientePorID($_POST['id']);
+        $ingredientes = $this->produto->buscarIngredientePorID();
         
         $this->produto->pesquisarProduto();
         $idProduto = $this->produto->getIdProduto();
