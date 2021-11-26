@@ -9,8 +9,8 @@
             {
                 
                 $nivelA = ["ADMINDASH","CADASTROPRODUTO","CADASTRORESPONSAVEL",
-                            "INCLUIRPRODUTO","ALTERARPRODUTO","EXCLUIRPRODUTO",
-                            "FORMALTERARPRODUTO"];
+                            "INCLUIRPRODUTO","ALTERARPRODUTO","EXCLUIRPRODUTO","FORMALTERARPRODUTO",
+                            "INCLUIRRESPONSAVEL","ALTERARRESPONSAVEL","EXCLUIRRESPONSAVEL","FORMALTERARRESPONSAVEL"];
 
                 $nivelB = ['RESPONSAVELDASH', 'CADASTROALUNO', 'DEPOSITOALUNO'];
                 

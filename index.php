@@ -59,6 +59,21 @@
                 $controlador = new ControladorCadastrarResponsavel();
                 $controlador->processaRequisicao();
                 break;
+            case "INCLUIRRESPONSAVEL":    
+                require "Controller/ControladorIncluirResponsavel.php";    
+                $controlador = new ControladorIncluirResponsavel();
+                $controlador->processaRequisicao();
+                break;
+            case "FORMALTERARRESPONSAVEL":    
+                require "Controller/ControladorFormAlterarResponsavel.php";    
+                $controlador = new ControladorFormAlterarResponsavel();
+                $controlador->processaRequisicao();
+                break;
+            case "EXCLUIRRESPONSAVEL":    
+                require "Controller/ControladorExcluirResponsavel.php";    
+                $controlador = new ControladorExcluirResponsavel();
+                $controlador->processaRequisicao();
+                break;
             case "RESPONSAVELDASH":    
                 require "Controller/ControladorResponsavelDashboard.php";    
                 $controlador = new ControladorResponsavelDashboard();

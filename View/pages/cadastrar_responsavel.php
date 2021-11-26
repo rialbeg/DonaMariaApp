@@ -58,16 +58,17 @@
 
 <body>
     <nav id="navbar">
-        <a href="../index.html">
+        <a href="h">
             <img src="View/images/logo-nome.png" alt="Dona Maria Cantina Escolar" id="logo-nome">
         </a>
+        <a href="Logoff" class="btn-login">Sair</a>
     </nav>
 
     <h1 class="cdr-title">
         Cadastro de responsável
     </h1>
     <!-- <div class="container"> -->
-    <form name="cadastrar_responsavel" class="container" action="/action_page.php" onsubmit="return validateForm()"
+    <form name="cadastrar_responsavel" class="container" action="incluirResponsavel" onsubmit="return validateForm()"
         method="post" required>
         <div class="inforesponsavel1">
             <label for="nome">Nome</label>

@@ -42,12 +42,12 @@
 
 </head>
 <body>
-    <nav id="navbar">
+    <!-- <nav id="navbar">
         <a href="home">
             <img src="View/images/logo-nome.png" alt="Dona Maria Cantina Escolar" id="logo-nome">
         </a>
-    </nav>
-
+    </nav> -->
+          <?php require "navbar.php"; ?>
     <!-- <div class="container"> -->
         <form id="produto_form" name="produto_form" class="container" action="incluirproduto" 
                 onsubmit="return validateForm()" method="post" 

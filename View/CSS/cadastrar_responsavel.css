@@ -66,6 +66,9 @@ a{
 
 #navbar{
     background-color:var(--main-orange);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 #navbar img{
     width:30rem;
@@ -73,7 +76,11 @@ a{
     padding: 10px 20px;
 }
 
-
+nav#navbar a.btn-login {
+    padding-right: 30px;
+    font-size:2.5rem;
+    color:white !important;
+}
 /*---------TITULO---------*/
 .cdr-title{
     text-align:center;

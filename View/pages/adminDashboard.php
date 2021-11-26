@@ -319,15 +319,16 @@
                     <td><?= $listaResponsaveis[$i]->getTelefone()?></td>
                     <td><?= $listaResponsaveis[$i]->getUsuario()->getUserLogin()?></td>
                     <td>
-                      <a href="./cadastrar_responsavel.html">
-                        <i class="fas fa-pencil-alt"></i>
-                      </a>  
+                      <form method="post" action="FormAlterarResponsavel">
+                        <input type="hidden" name="id" value="<?= $listaResponsaveis[$i]->getIdResponsavel();?>">
+                        <input type="submit" class="button"  value= "Alterar">
+                      </form>    
                     </td>
                     <td>
-                      <a href="#delete-modal">
-                        <i class="fas fa-minus-circle"></i>
-                      </a> 
-                      
+                      <form method="post" action="ExcluirResponsavel" onSubmit="return confirma();">
+                        <input type="hidden" name="id" value="<?= $listaResponsaveis[$i]->getIdResponsavel();?>">
+                        <input type="submit" class="button button-red" value= "Excluir">
+                      </form>
                     </td>
                 </tr>
                 <?php endfor;?>

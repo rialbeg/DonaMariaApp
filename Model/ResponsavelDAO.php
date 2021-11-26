@@ -44,5 +44,84 @@
             catch(PDOException $e){
                 return array();
             }
-        }//end function
+        }//end listarTodosResponsaveis
+
+        public function pesquisarResponsavel($resp){
+            //vai ao banco de dados e pega todos os livros
+                try{
+                    $minhaConexao = Conexao::getConexao();
+            
+                
+                }
+                catch(PDOException $e){
+                    echo "Error " . $e->getMessage();
+                }
+        }// end pesquisarResponsavel
+        public function incluirResponsavel($resp){
+            try{
+                $minhaConexao = Conexao::getConexao();
+                $sql = "INSERT INTO RESPONSAVEL  (IDRESPONSAVEL,NOME,CPF,EMAIL,TELEFONE)
+                        VALUES(NULL, :nome, :cpf,:email,:telefone);";
+                $stmt = $minhaConexao->prepare($sql);
+                
+                $stmt->bindParam("nome",$nome);
+                $stmt->bindParam("cpf",$cpf);
+                $stmt->bindParam("email",$email);
+                $stmt->bindParam("telefone",$telefone);
+
+                $nome = $resp->getNome();
+                $cpf = $resp->getCpf();
+                $email = $resp->getEmail();
+                $telefone = $resp->getTelefone();
+                
+                $stmt->execute();
+
+                $last_id = $minhaConexao->lastInsertId();
+                $resp->setIdResponsavel($last_id);
+
+                $sql = "INSERT INTO USUARIO (IDUSUARIO, ID_ESCOLA, ID_RESPONSAVEL, ID_ALUNO, NIVELACESSO, USERLOGIN, SENHA)
+                        VALUES(NULL, NULL, :idresponsavel, NULL, :nivelacesso, :userlogin ,:senha);";
+                $stmt = $minhaConexao->prepare($sql);
+
+                $stmt->bindParam(':idresponsavel',$last_id);
+                $stmt->bindParam(':nivelacesso',$nivelacesso);
+                $stmt->bindParam(':userlogin',$userlogin);
+                $stmt->bindParam(':senha',$senha);
+
+                $nivelacesso = $resp->getUsuario()->getNivelacesso();
+                $userlogin = $resp->getUsuario()->getUserLogin();
+                $senha = password_hash($resp->getUsuario()->getSenha(),PASSWORD_DEFAULT);
+
+                $stmt->execute();
+                
+            }
+            catch(PDOException $e){
+                echo "entrou no catch".$e->getmessage();
+                return 0;
+            }
+
+        }// end incluirResponsavel
+
+        public function excluirResponsavel($resp){
+            try{
+                $minhaConexao = Conexao::getConexao();
+                $sql = "DELETE FROM USUARIO 
+                        WHERE ID_RESPONSAVEL = :idresponsavel";
+                $idresponsavel = $resp->getIdResponsavel();
+                
+                $stmt = $minhaConexao->prepare($sql);
+                $stmt->bindParam('idresponsavel', $idresponsavel);
+                $stmt->execute();
+                
+                $sql = "DELETE FROM RESPONSAVEL
+                        WHERE IDRESPONSAVEL = :idresponsavel";
+                $stmt = $minhaConexao->prepare($sql);
+                $stmt->bindParam('idresponsavel',$idresponsavel);
+                $stmt->execute();
+                
+            }catch(PDOException $e){
+                echo "entrou no catch".$e->getmessage();
+                return 0;
+            }
+        }
     }
