@@ -58,7 +58,7 @@
     <!-- <div class="container"> -->
         <form id="produto_form" name="produto_form" class="container" action="alterarproduto" 
                 method="post"
-                enctype="multipart/form-data" required>
+                enctype="multipart/form-data" required onsubmit="return validateForm();">
                 <input type="hidden" name="id" value="<?= $idProduto?>">
             <div class="form-box">
                     <h1 class="title">

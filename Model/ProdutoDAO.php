@@ -138,7 +138,7 @@ class ProdutoDAO{
            
            
             //montando a queryResult
-            print("<pre>".print_r($produto,true)."</pre>");
+            // print("<pre>".print_r($produto,true)."</pre>");
             $sql = "UPDATE PRODUTO
                     SET CODIGO=:codigo, NOME=:nome, FORNECEDOR=:fornecedor, PRECO=:preco 
                     WHERE IDPRODUTO = :id";

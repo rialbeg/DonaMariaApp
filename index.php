@@ -64,6 +64,11 @@
                 $controlador = new ControladorIncluirResponsavel();
                 $controlador->processaRequisicao();
                 break;
+            case "ALTERARRESPONSAVEL":    
+                require "Controller/ControladorAlterarResponsavel.php";    
+                $controlador = new ControladorAlterarResponsavel();
+                $controlador->processaRequisicao();
+                break;
             case "FORMALTERARRESPONSAVEL":    
                 require "Controller/ControladorFormAlterarResponsavel.php";    
                 $controlador = new ControladorFormAlterarResponsavel();

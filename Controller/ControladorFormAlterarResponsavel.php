@@ -13,14 +13,20 @@ class ControladorFormAlterarResponsavel implements IControlador{
     
     public function processaRequisicao(){
         Validation::validaSessao();
+        $this->responsavel->setIdResponsavel($_POST['id']);
         
-        echo "entrou form alterar produto";
-        // require "View/pages/alterar_produto.php";
+        $this->responsavel->pesquisarResponsavel();
+        $idResponsavel = $this->responsavel->getIdResponsavel();
+        $nome = $this->responsavel->getNome();
+        $cpf = $this->responsavel->getCpf();
+        $email = $this->responsavel->getEmail();
+        $telefone = $this->responsavel->getTelefone();
+        $userlogin = $this->responsavel->getUsuario()->getUserLogin();
+        $nivelacesso = $this->responsavel->getUsuario()->getNivelacesso();
+        require "View/pages/alterar_responsavel.php";
         
-
         // print("<pre>".print_r($_POST,true)."</pre>");
-        
-        // print("<pre>".print_r($this->produto,true)."</pre>");
+        // print("<pre>".print_r($this->responsavel,true)."</pre>");
         // $vars = get_defined_vars();
         // print("<pre>".print_r($vars,true)."</pre>");
         // print("<pre>".print_r($_FILES,true)."</pre>");
