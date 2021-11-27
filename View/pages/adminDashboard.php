@@ -175,16 +175,16 @@
                   <!-- <th>Editar</th>
                   <th>Excluir</th> -->
               </tr>
-              
+              <?php for($i=0;$i<count($listaAlunos);$i++): ?>
               <tr>
-                  <td>Cirilo Rivera</td>
-                  <td>113118987</td>
-                  <td>2ª A</td>
-                  <td>Integral</td>
-                  <td>11993579899</td>
-                  <td>cirilo@gado.com</td>
-                  <td>alunoCiriloRivera</td>
-                  <td>R$ 57,00</td>
+                  <td><?= $listaAlunos[$i]->getNome();?></td>
+                  <td><?= $listaAlunos[$i]->getMatricula();?></td>
+                  <td><?= $listaAlunos[$i]->getTurma();?></td>
+                  <td><?= $listaAlunos[$i]->getTurno();?></td>
+                  <td><?= $listaAlunos[$i]->getTelefone();?></td>
+                  <td><?= $listaAlunos[$i]->getEmail();?></td>
+                  <td><?= $listaAlunos[$i]->getUsuario()->getUserLogin();?></td>
+                  <td><?= $listaAlunos[$i]->getSaldo();?></td>
                   <!-- <td>
                     <a href="./cadastrar_aluno.html">
                       <i class="fas fa-pencil-alt"></i>
@@ -197,92 +197,7 @@
                     
                   </td> -->
               </tr>
-              <tr>
-                  <td>Cirilo Rivera</td>
-                  <td>113118987</td>
-                  <td>2ª A</td>
-                  <td>Integral</td>
-                  <td>11993579899</td>
-                  <td>cirilo@gado.com</td>
-                  <td>alunoCiriloRivera</td>
-                  <td>R$ 57,00</td>
-                  <!-- <td>
-                    <a href="./cadastrar_aluno.html">
-                      <i class="fas fa-pencil-alt"></i>
-                    </a>  
-                  </td>
-                  <td>
-                    <a href="#delete-modal">
-                      <i class="fas fa-minus-circle"></i>
-                    </a> 
-                    
-                  </td> -->
-              </tr>
-              <tr>
-                  <td>Cirilo Rivera</td>
-                  <td>113118987</td>
-                  <td>2ª A</td>
-                  <td>Integral</td>
-                  <td>11993579899</td>
-                  <td>cirilo@gado.com</td>
-                  <td>alunoCiriloRivera</td>
-                  <td>R$ 57,00</td>
-                  <!-- <td>
-                    <a href="./cadastrar_aluno.html">
-                      <i class="fas fa-pencil-alt"></i>
-                    </a>  
-                  </td>
-                  <td>
-                    <a href="#delete-modal">
-                      <i class="fas fa-minus-circle"></i>
-                    </a> 
-                    
-                  </td> -->
-              </tr>
-              <tr>
-                  <td>Cirilo Rivera</td>
-                  <td>113118987</td>
-                  <td>2ª A</td>
-                  <td>Integral</td>
-                  <td>11993579899</td>
-                  <td>cirilo@gado.com</td>
-                  <td>alunoCiriloRivera</td>
-                  <td>R$ 57,00</td>
-                  <!-- <td>
-                    <a href="./cadastrar_aluno.html">
-                      <i class="fas fa-pencil-alt"></i>
-                    </a>  
-                  </td>
-                  <td>
-                    <a href="#delete-modal">
-                      <i class="fas fa-minus-circle"></i>
-                    </a> 
-                    
-                  </td> -->
-              </tr>
-              <tr>
-                  <td>Cirilo Rivera</td>
-                  <td>113118987</td>
-                  <td>2ª A</td>
-                  <td>Integral</td>
-                  <td>11993579899</td>
-                  <td>cirilo@gado.com</td>
-                  <td>alunoCiriloRivera</td>
-                  <td>R$ 57,00</td>
-                  <!-- <td>
-                    <a href="./cadastrar_aluno.html">
-                      <i class="fas fa-pencil-alt"></i>
-                    </a>  
-                  </td>
-                  <td>
-                    <a href="#delete-modal">
-                      <i class="fas fa-minus-circle"></i>
-                    </a> 
-                    
-                  </td> -->
-              </tr>
-              
-              
+              <?php endfor; ?>
           </table>
           </div>
         </div>
