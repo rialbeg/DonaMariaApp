@@ -1,7 +1,7 @@
 <?php
 
     require "Pessoa.php";
-    require "Usuario.php";
+    // require "Usuario.php";
     require "ResponsavelDAO.php";
     class Responsavel extends Pessoa{
         private $idResponsavel;
@@ -10,7 +10,8 @@
 
         
         public function __construct(){
-            Parent::setUsuario(new Usuario());
+            Parent::__construct();
+            // Parent::setUsuario(new Usuario());
         }
         public function getIdResponsavel()
         {

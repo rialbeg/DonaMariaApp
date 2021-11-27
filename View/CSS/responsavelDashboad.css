@@ -59,7 +59,7 @@ a.link-active{
     font-size: 2rem;
     color: white;
   
-    position: fixed;
+    /* position: fixed; */
     width: 100%;
     z-index: 5;
     padding: 0% 15%;
@@ -76,14 +76,16 @@ a.link-active{
     padding-right: 30px;
   }
   
-  nav div.btn-login {
-    padding-right: 20px;
-  }
   
+  nav#navbar a.btn-login {
+    padding-right: 30px;
+    font-size:2.5rem;
+    color:white !important;
+}
   /* ------------------------- MAIN -------------------------*/
   
   main {
-    padding-top: 9rem;
+    /* padding-top: 9rem; */
     /* margin: 0 15rem; */
     flex-wrap: wrap;
   }

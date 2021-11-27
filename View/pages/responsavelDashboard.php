@@ -19,15 +19,7 @@
 
   <body>
     <header >
-      <nav id="navbar">
-        <a href="../index.html">
-          <img
-          src="View/images/logo-nome.png"
-          alt="Dona Maria Cantina Escolar"
-          id="logo-nome"
-        />
-        </a>
-      </nav>
+      <?php require "navbar.php";?>
     </header>
 
     <main id="main">
@@ -49,17 +41,18 @@
           <hr class="thin-line" />
           <a href="cadastroaluno" class="options">+ Novo Aluno</a>
           <div class="alunos">
+          <?php for($i=0;$i<count($listaAlunos);$i++): ?>
             <div class="aluno">
-              <img src="View/images/Bart_Simpson.png" alt="Alvo Dumbledore" />
+              <img src="View/images/estudante.png" alt="Avatar Aluno" />
               <div class="aluno-text">
-                <h2>Bartholomew JoJo Simpson</h2>
+                <h2><?= $listaAlunos[$i]->getNome() ?></h2>
                 <div class="aluno-subtitle">
-                  <h5>Matrícula: 02543843</h5>
-                  <h5>Turma: 9° Ano B</h5>
+                  <h5>Matrícula: <?= $listaAlunos[$i]->getMatricula() ?></h5>
+                  <h5>Turma: <?= $listaAlunos[$i]->getTurma() ?></h5>
                 </div>
-                <h5>Turno: Matutino</h5>
-                <h5>Telefone: (11) 4002 8922</h5>
-                <h1>R$ 37,00</h1>
+                <h5>Turno: <?= $listaAlunos[$i]->getTurno() ?></h5>
+                <h5>Telefone: <?= $listaAlunos[$i]->getTelefone() ?></h5>
+                <h1>R$ <?= $listaAlunos[$i]->getSaldo() ?></h1>
                 <a href="#deposit-modal" title="deposito">
                   <i class="fas fa-money-bill-wave deposit"></i>
                 </a>
@@ -72,52 +65,8 @@
               </div>
               <a href="#delete-modal" class="close1">X</a>
             </div>
-            <div class="aluno">
-              <img src="View/images/Lisa_Simpson.jpg" alt="Alvo Dumbledore" />
-              <div class="aluno-text">
-                <h2>Lisa Marie Simpson</h2>
-                <div class="aluno-subtitle">
-                  <h5>Matrícula: 177 276 876</h5>
-                  <h5>Turma: 9° Ano B</h5>
-                </div>
-                <h5>Turno: Matutino</h5>
-                <h5>Telefone: (11) 4002 8922</h5>
-                <h1>R$ 500,00</h1>
-                <a href="#deposit-modal" title="deposito">
-                  <i class="fas fa-money-bill-wave deposit"></i>
-                </a>
-                <a href="./bloquear_produto.html" title="bloquear produto" onclick="block(this)">
-                  <i class="fas fa-lock block-food"></i>
-                </a>
-                <a href="./extrato_historico.html" title="extrato historico" onclick="block(this)" >
-                  <i class="fas fa-file-alt extrato"></i>
-                </a>
-              </div>
-              <a href="#delete-modal" class="close1">X</a>
-            </div>
-            <div class="aluno">
-              <img src="View/images/maggie_simpson.png" alt="Alvo Dumbledore" />
-              <div class="aluno-text">
-                <h2>Margareth J. A. Bouvier-Simpson</h2>
-                <div class="aluno-subtitle">
-                  <h5>Matrícula: 02543843</h5>
-                  <h5>Turma: 9° Ano B</h5>
-                </div>
-                <h5>Turno: Matutino</h5>
-                <h5>Telefone: (11) 4002 8922</h5>
-                <h1>R$ R$ 400,00</h1>
-                <a href="#deposit-modal" title="deposito">
-                  <i class="fas fa-money-bill-wave deposit"></i>
-                </a>
-                <a href="./bloquear_produto.html" title="bloquear produto" onclick="block(this)">
-                  <i class="fas fa-lock block-food"></i>
-                </a>
-                <a href="./extrato_historico.html" title="extrato historico" onclick="block(this)" >
-                  <i class="fas fa-file-alt extrato"></i>
-                </a>
-              </div>
-              <a href="#delete-modal" class="close1">X</a>
-            </div>
+          <?php endfor;?>
+            
           </div>
         </div>
       </section>

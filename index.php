@@ -89,6 +89,11 @@
                 $controlador = new ControladorCadastrarAluno();
                 $controlador->processaRequisicao();
                 break;
+            case "INCLUIRALUNO":    
+                require "Controller/ControladorIncluirAluno.php";    
+                $controlador = new ControladorIncluirAluno();
+                $controlador->processaRequisicao();
+                break;
             case "ALUNODASH":    
                 require "Controller/ControladorAlunoDashboard.php";    
                 $controlador = new ControladorAlunoDashboard();

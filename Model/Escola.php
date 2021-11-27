@@ -1,16 +1,26 @@
 <?php 
 
     require_once "Usuario.php";
-    abstract class Pessoa{
-
+    class Escola{
+        private $isEscola;
         private $nome;
         private $telefone;
         private $email;
         private $usuario;
-        private $escola;
+
 
         public function __construct(){
             $this->usuario = new Usuario();
+        }
+        
+        public function getIsEscola()
+        {
+            return $this->isEscola;
+        }
+
+        public function setIsEscola($isEscola)
+        {
+            $this->isEscola = $isEscola;
         }
 
         public function getNome()
@@ -41,25 +51,5 @@
         public function setEmail($email)
         {
             $this->email = $email;
-        }
-
-        public function getUsuario()
-        {
-            return $this->usuario;
-        }
-
-        public function setUsuario($usuario)
-        {
-            $this->usuario = $usuario;
-        }
-
-        public function getEscola()
-        {
-            return $this->escola;
-        }
-
-        public function setEscola($escola)
-        {
-            $this->escola = $escola;
         }
     }

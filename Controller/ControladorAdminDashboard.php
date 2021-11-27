@@ -23,7 +23,7 @@ class ControladorAdminDashboard implements IControlador{
         $listaResponsaveis = $this->responsavel->listarTodosResponsaveis();
         $listaAlunos = $this->aluno->listarTodosAlunos();
 
-        print("<pre>".print_r($listaAlunos,true)."</pre>");
+        // print("<pre>".print_r($listaAlunos,true)."</pre>");
         require "View/pages/adminDashboard.php";
     }
 }

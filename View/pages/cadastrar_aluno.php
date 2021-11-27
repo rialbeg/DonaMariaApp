@@ -25,11 +25,11 @@
                 alert("A turma deve ser preenchida");
                 return false;
             }
-            var email = document.forms["cadastrar_aluno"]["email"].value;
-            if (email == "") {
-                alert("O email deve ser preenchido");
-                return false;
-            }
+            // var email = document.forms["cadastrar_aluno"]["email"].value;
+            // if (email == "") {
+            //     alert("O email deve ser preenchido");
+            //     return false;
+            // }
             var login = document.forms["cadastrar_aluno"]["login"].value;
             if (login == "") {
                 alert("O login deve ser preenchido");
@@ -45,11 +45,11 @@
                 alert("O turno deve ser preenchida");
                 return false;
             }
-            var telefone = document.forms["cadastrar_aluno"]["telefone"].value;
-            if (telefone == "") {
-                alert("O telefone deve ser preenchida");
-                return false;
-            }
+            // var telefone = document.forms["cadastrar_aluno"]["telefone"].value;
+            // if (telefone == "") {
+            //     alert("O telefone deve ser preenchida");
+            //     return false;
+            // }
             var senha = document.forms["cadastrar_aluno"]["senha"].value;
             if (senha == "") {
                 alert("A senha deve ser preenchida");
@@ -72,7 +72,7 @@
         Cadastro de Aluno
     </h1>
     <!-- <div class="container"> -->
-        <form name="cadastrar_aluno" class="container" action="/action_page.php" onsubmit="return validateForm()" method="get" required>
+        <form name="cadastrar_aluno" class="container" action="incluirAluno" onsubmit="return validateForm()" method="POST" required>
             <div class="infoaluno1">
                     <label for="nome">Nome</label>
                     <input type="text" id="nome" name="nome">

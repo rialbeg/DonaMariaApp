@@ -1,7 +1,7 @@
 <?php 
 
 require_once "Pessoa.php";
-require_once "Usuario.php";
+// require_once "Usuario.php";
 require_once "AlunoDAO.php";
 
 class Aluno extends Pessoa{
@@ -12,7 +12,8 @@ class Aluno extends Pessoa{
     private $saldo;
 
     public function __construct(){
-        Parent::setUsuario(new Usuario());
+        // Parent::setUsuario(new Usuario());
+        Parent::__construct();
     }
 
     public function getIdAluno()
