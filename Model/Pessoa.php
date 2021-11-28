@@ -7,7 +7,7 @@
         private $telefone;
         private $email;
         private $usuario;
-        private $escola;
+        private $id_escola;
 
         public function __construct(){
             $this->usuario = new Usuario();
@@ -53,13 +53,14 @@
             $this->usuario = $usuario;
         }
 
-        public function getEscola()
+        public function getId_escola()
         {
-            return $this->escola;
+            return $this->id_escola;
         }
 
-        public function setEscola($escola)
+        public function setId_escola($id_escola)
         {
-            $this->escola = $escola;
+            $this->id_escola = $id_escola;
+            return $this;
         }
     }

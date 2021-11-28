@@ -248,8 +248,8 @@ a.link-active{
 
   .close1 {
     position: absolute;
-    top: 15px;
-    left:0;
+    top: 10px;
+    left:20px;
     color: grey;
     text-decoration: none;
     font-size: 2rem;

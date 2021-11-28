@@ -10,6 +10,7 @@ class Aluno extends Pessoa{
     private $turma;
     private $turno;
     private $saldo;
+    private $id_responsavel;
 
     public function __construct(){
         // Parent::setUsuario(new Usuario());
@@ -65,6 +66,16 @@ class Aluno extends Pessoa{
         $this->saldo = $saldo;
     }
 
+    public function getId_responsavel()
+    {
+        return $this->id_responsavel;
+    }
+
+    public function setId_responsavel($id_responsavel)
+    {
+        $this->id_responsavel = $id_responsavel;
+    }
+
     public function incluirAluno(){
         $alunoDAO = new AlunoDAO();
         $alunoDAO->incluirAluno($this);
@@ -79,6 +90,10 @@ class Aluno extends Pessoa{
         $alunoDAO = new AlunoDAO();
         $alunoDAO->pesquisarAluno($this);
     }
+    public function pesquisarIdResponsavel(){
+        $alunoDAO = new AlunoDAO();
+        $alunoDAO->pesquisarIdResponsavel($this);
+    }
 
     public function alterarAluno(){
         $alunoDAO = new AlunoDAO();
@@ -87,8 +102,6 @@ class Aluno extends Pessoa{
 
     public function listarTodosAlunos(){
         $alunoDAO = new AlunoDAO();
-        return $alunoDAO->listarTodosAlunos();
+        return $alunoDAO->listarTodosAlunos($this);
     } 
-
-    
 }

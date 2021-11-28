@@ -1,8 +1,9 @@
 <?php 
 
     require_once "Usuario.php";
+    require_once "EscolaDAO.php";
     class Escola{
-        private $isEscola;
+        private $idEscola;
         private $nome;
         private $telefone;
         private $email;
@@ -13,14 +14,14 @@
             $this->usuario = new Usuario();
         }
         
-        public function getIsEscola()
+        public function getIdEscola()
         {
-            return $this->isEscola;
+            return $this->idEscola;
         }
 
-        public function setIsEscola($isEscola)
+        public function setIdEscola($idEscola)
         {
-            $this->isEscola = $isEscola;
+            $this->idEscola = $idEscola;
         }
 
         public function getNome()
@@ -52,4 +53,6 @@
         {
             $this->email = $email;
         }
+
+        
     }

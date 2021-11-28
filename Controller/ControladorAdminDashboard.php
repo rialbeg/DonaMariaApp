@@ -19,6 +19,7 @@ class ControladorAdminDashboard implements IControlador{
     
     public function processaRequisicao(){
         Validation::validaSessao();
+        $this->responsavel->setId_escola($_SESSION['idusuario']);
         $listaProdutos = $this->produto->listarTodosProdutos();
         $listaResponsaveis = $this->responsavel->listarTodosResponsaveis();
         $listaAlunos = $this->aluno->listarTodosAlunos();

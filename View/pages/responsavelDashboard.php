@@ -13,7 +13,12 @@
       href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
-
+    <script>
+      function confirma(){
+        return confirm("Confirma a exclusão?");
+        
+      }
+    </script>
     <title>Dona Maria</title>
   </head>
 
@@ -63,7 +68,10 @@
                   <i class="fas fa-file-alt extrato"></i>
                 </a>
               </div>
-              <a href="#delete-modal" class="close1">X</a>
+              <form method="post" class="close1" action="ExcluirAluno" onSubmit="return confirma();">
+                  <input type="hidden" name="id" value="<?= $listaAlunos[$i]->getIdAluno();?>">
+                  <input type="submit"  value= "X">
+              </form>
             </div>
           <?php endfor;?>
             

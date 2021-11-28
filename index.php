@@ -94,6 +94,11 @@
                 $controlador = new ControladorIncluirAluno();
                 $controlador->processaRequisicao();
                 break;
+            case "EXCLUIRALUNO":    
+                require "Controller/ControladorExcluirAluno.php";    
+                $controlador = new ControladorExcluirAluno();
+                $controlador->processaRequisicao();
+                break;
             case "ALUNODASH":    
                 require "Controller/ControladorAlunoDashboard.php";    
                 $controlador = new ControladorAlunoDashboard();

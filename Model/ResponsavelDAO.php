@@ -4,18 +4,20 @@
     class ResponsavelDAO{
 
         
-        public function listarTodosResponsaveis(){
+        public function listarTodosResponsaveis($resp){
              //vai ao banco de dados e pega todos os livros
             try{
                 $minhaConexao = Conexao::getConexao();
                 $sql = "SELECT IDRESPONSAVEL,NOME,CPF,EMAIL,TELEFONE,USERLOGIN,NIVELACESSO
                         FROM responsavel
                         INNER JOIN usuario
-                        ON responsavel.IDRESPONSAVEL = usuario.ID_RESPONSAVEL;";
+                        ON responsavel.IDRESPONSAVEL = usuario.ID_RESPONSAVEL
+                        WHERE responsavel.ID_ESCOLA = :id_escola";
 
                 $stmt = $minhaConexao->prepare($sql);
             
-                    
+                $stmt->bindParam('id_escola',$id_escola);
+                $id_escola = $resp->getId_escola();
                 $stmt->execute();
                 $stmt->setFetchMode(PDO::FETCH_ASSOC);
                 // $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -49,19 +51,21 @@
         public function incluirResponsavel($resp){
             try{
                 $minhaConexao = Conexao::getConexao();
-                $sql = "INSERT INTO RESPONSAVEL  (IDRESPONSAVEL,NOME,CPF,EMAIL,TELEFONE)
-                        VALUES(NULL, :nome, :cpf,:email,:telefone);";
+                $sql = "INSERT INTO RESPONSAVEL  (IDRESPONSAVEL,NOME,CPF,EMAIL,TELEFONE,ID_ESCOLA)
+                        VALUES(NULL, :nome, :cpf,:email,:telefone,:id_escola);";
                 $stmt = $minhaConexao->prepare($sql);
                 
                 $stmt->bindParam("nome",$nome);
                 $stmt->bindParam("cpf",$cpf);
                 $stmt->bindParam("email",$email);
                 $stmt->bindParam("telefone",$telefone);
+                $stmt->bindParam("id_escola",$id_escola);
 
                 $nome = $resp->getNome();
                 $cpf = $resp->getCpf();
                 $email = $resp->getEmail();
                 $telefone = $resp->getTelefone();
+                $id_escola = $resp->getId_escola();
                 
                 $stmt->execute();
 

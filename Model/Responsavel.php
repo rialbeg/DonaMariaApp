@@ -55,7 +55,7 @@
     
         public function listarTodosResponsaveis(){
             $responsavelDAO = new ResponsavelDAO();
-            return $responsavelDAO->listarTodosResponsaveis();
+            return $responsavelDAO->listarTodosResponsaveis($this);
         }    
 
 

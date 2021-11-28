@@ -8,7 +8,7 @@
         public function buscarUsuario($user){
             try{
                 $conn = Conexao::getConexao();
-                $sql = "SELECT userlogin,senha,nivelacesso FROM `usuario` WHERE userlogin = :userlogin";
+                $sql = "SELECT idusuario,userlogin,senha,nivelacesso FROM `usuario` WHERE userlogin = :userlogin";
 
                 $stmt = $conn->prepare($sql);
                 $userlogin = $user->getUserLogin();
@@ -31,6 +31,7 @@
 
                     $_SESSION['autenticado'] = true;
                     $_SESSION['nivelacesso'] = $result['nivelacesso'];
+                    $_SESSION['idusuario'] = $result['idusuario'];
 
                     if(isset($_SESSION['errLogin']))
                         unset($_SESSION['errLogin']);
