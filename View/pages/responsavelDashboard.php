@@ -67,10 +67,16 @@
                 <a href="./extrato_historico.html" title="extrato historico" onclick="block(this)" >
                   <i class="fas fa-file-alt extrato"></i>
                 </a>
-              </div>
-              <form method="post" class="close1" action="ExcluirAluno" onSubmit="return confirma();">
+                <form method="post" class="" action="FormAlterarAluno" >
                   <input type="hidden" name="id" value="<?= $listaAlunos[$i]->getIdAluno();?>">
-                  <input type="submit"  value= "X">
+                  <button class="alterar-aluno-button" title="Alterar Aluno"type="submit"  value= "">
+                    <i class="fas fa-address-card"></i>
+                  </button>
+                </form>
+              </div>
+              <form method="post" class="" action="ExcluirAluno" onSubmit="return confirma();">
+                  <input type="hidden" name="id" value="<?= $listaAlunos[$i]->getIdAluno();?>">
+                  <button class="close1"type="submit"  value= "">X</button>
               </form>
             </div>
           <?php endfor;?>

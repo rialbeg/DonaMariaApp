@@ -250,9 +250,25 @@ a.link-active{
     position: absolute;
     top: 10px;
     left:20px;
-    color: grey;
+    color: var(--main-orange);
+    border: none;
     text-decoration: none;
     font-size: 2rem;
+    
+  }
+  .close1:hover,
+  .alterar-aluno-button:hover {
+    cursor: pointer;
+    font-size:2.2rem;
+  }
+  .alterar-aluno-button{
+    position: absolute;
+    bottom:15px;
+    right:90px;
+    color: var(--main-orange);
+    border: none;
+    text-decoration: none;
+    font-size: 1.5rem;
   }
 .deposit{
   position: absolute;
@@ -268,6 +284,11 @@ a.link-active{
   position: absolute;
   bottom:15px;
   right:70px;
+}
+.plus{
+  position: absolute;
+  bottom:15px;
+  right:90px;
 }
 /* ------------------------------ MODAL ------------------------- */
 .overlay {

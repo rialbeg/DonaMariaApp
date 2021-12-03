@@ -94,6 +94,16 @@
                 $controlador = new ControladorIncluirAluno();
                 $controlador->processaRequisicao();
                 break;
+            case "ALTERARALUNO":    
+                require "Controller/ControladorAlterarAluno.php";    
+                $controlador = new ControladorAlterarAluno();
+                $controlador->processaRequisicao();
+                break;
+            case "FORMALTERARALUNO":    
+                require "Controller/ControladorFormAlterarAluno.php";    
+                $controlador = new ControladorFormAlterarAluno();
+                $controlador->processaRequisicao();
+                break;
             case "EXCLUIRALUNO":    
                 require "Controller/ControladorExcluirAluno.php";    
                 $controlador = new ControladorExcluirAluno();

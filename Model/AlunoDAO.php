@@ -101,39 +101,45 @@
 
         }// end incluirAluno
 
-        public function alterarAluno($resp){
+        public function alterarAluno($aluno){
             try{
                 $minhaConexao = Conexao::getConexao();
 
-                $sql = "UPDATE RESPONSAVEL, USUARIO SET 
-                        RESPONSAVEL.NOME = :nome,
-                        RESPONSAVEL.CPF = :cpf,
-                        RESPONSAVEL.EMAIL = :email,
-                        RESPONSAVEL.TELEFONE = :telefone,
+                $sql = "UPDATE ALUNO, USUARIO SET 
+                        ALUNO.NOME = :nome,
+                        ALUNO.MATRICULA = :matricula,
+                        ALUNO.TURMA = :turma,
+                        ALUNO.TURNO = :turno,
+                        ALUNO.TELEFONE = :telefone,
+                        ALUNO.EMAIL = :email,
                         USUARIO.USERLOGIN = :userlogin,
                         USUARIO.SENHA = :senha
                         WHERE 
-                            RESPONSAVEL.IDRESPONSAVEL = :idresponsavel
+                            ALUNO.IDALUNO = :idaluno
                         AND
-                            USUARIO.ID_RESPONSAVEL = :idresponsavel";
+                            USUARIO.ID_ALUNO = :idaluno";
                 $stmt = $minhaConexao->prepare($sql);
                 
                 $stmt->bindParam("nome",$nome);
-                $stmt->bindParam("cpf",$cpf);
-                $stmt->bindParam("email",$email);
+                $stmt->bindParam("matricula",$matricula);
+                $stmt->bindParam("turma",$turma);
+                $stmt->bindParam("turno",$turno);
                 $stmt->bindParam("telefone",$telefone);
+                $stmt->bindParam("email",$email);
                 $stmt->bindParam("userlogin",$userlogin);
                 $stmt->bindParam("senha",$senha);
-                $stmt->bindParam("idresponsavel",$idresponsavel);
+                $stmt->bindParam("idaluno",$idaluno);
                 
 
-                $nome = $resp->getNome();
-                $cpf = $resp->getCpf();
-                $email = $resp->getEmail();
-                $telefone = $resp->getTelefone();
-                $userlogin = $resp->getUsuario()->getUserLogin();
-                $senha =password_hash($resp->getUsuario()->getSenha(),PASSWORD_DEFAULT);
-                $idresponsavel = $resp->getIdAluno();
+                $nome = $aluno->getNome();
+                $matricula = $aluno->getMatricula();
+                $turma = $aluno->getTurma();
+                $turno = $aluno->getTurno();
+                $telefone = $aluno->getTelefone();
+                $email = $aluno->getEmail();
+                $userlogin = $aluno->getUsuario()->getUserLogin();
+                $senha =password_hash($aluno->getUsuario()->getSenha(),PASSWORD_DEFAULT);
+                $idaluno = $aluno->getIdAluno();
 
                 $stmt->execute();
                 
@@ -143,17 +149,17 @@
             }
         }
 
-        public function pesquisarAluno($resp){
-            //vai ao banco de dados e pega todos os livros
+        public function pesquisarAluno($aluno){
+            
                 try{
                     $minhaConexao = Conexao::getConexao();
-                    $sql = "SELECT * FROM RESPONSAVEL
+                    $sql = "SELECT * FROM ALUNO
                             INNER JOIN usuario
-                            ON IDRESPONSAVEL = ID_RESPONSAVEL
-                            WHERE IDRESPONSAVEL = :idresponsavel;";
+                            ON IDALUNO = ID_ALUNO
+                            WHERE IDALUNO = :idaluno;";
                     $stmt = $minhaConexao->prepare($sql);
-                    $stmt->bindParam("idresponsavel",$idresponsavel);
-                    $idresponsavel = $resp->getIdAluno();
+                    $stmt->bindParam("idaluno",$idaluno);
+                    $idaluno = $aluno->getIdAluno();
                     
                     $stmt->execute();
                     $stmt->setFetchMode(PDO::FETCH_ASSOC);
@@ -161,13 +167,15 @@
                     // print("<pre>".print_r($stmt->fetchAll(),true)."</pre>");
                     while ($linha = $stmt->fetch(PDO::FETCH_ASSOC)) {
                         // print("<pre>".print_r($linha,true)."</pre>");
-                        $resp->setNome($linha['NOME']);
-                        $resp->setCpf($linha['CPF']);
-                        $resp->setEmail($linha['EMAIL']);
-                        $resp->setTelefone($linha['TELEFONE']);
-                        $resp->getUsuario()->setUserLogin($linha['USERLOGIN']);
-                        $resp->getUsuario()->setNivelAcesso($linha['NIVELACESSO']);
-                        $resp->getUsuario()->setSenha($linha['SENHA']);
+                        $aluno->setNome($linha['NOME']);
+                        $aluno->setMatricula($linha['MATRICULA']);
+                        $aluno->setTurma($linha['TURMA']);
+                        $aluno->setTurno($linha['TURNO']);
+                        $aluno->setTelefone($linha['TELEFONE']);
+                        $aluno->setEmail($linha['EMAIL']);
+                        $aluno->getUsuario()->setUserLogin($linha['USERLOGIN']);
+                        $aluno->getUsuario()->setNivelAcesso($linha['NIVELACESSO']);
+                        $aluno->getUsuario()->setSenha($linha['SENHA']);
                     }
                     
                 }
