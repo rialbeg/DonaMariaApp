@@ -109,6 +109,16 @@
                 $controlador = new ControladorExcluirAluno();
                 $controlador->processaRequisicao();
                 break;
+            case "FORMDEPOSITOALUNO":    
+                require "Controller/ControladorFormDepositoAluno.php";    
+                $controlador = new ControladorFormDepositoAluno();
+                $controlador->processaRequisicao();
+                break;
+            case "DEPOSITOALUNO":    
+                require "Controller/ControladorDepositoAluno.php";    
+                $controlador = new ControladorDepositoAluno();
+                $controlador->processaRequisicao();
+                break;
             case "ALUNODASH":    
                 require "Controller/ControladorAlunoDashboard.php";    
                 $controlador = new ControladorAlunoDashboard();

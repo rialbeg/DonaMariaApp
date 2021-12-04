@@ -226,4 +226,39 @@
                 return 0;
             }
         }// end excluirAluno
+
+        public function depositarAluno($aluno){
+            try{
+                $minhaConexao = Conexao::getConexao();
+
+                
+                $idaluno = $aluno->getIdAluno();
+
+                $sql = "SELECT SALDO FROM ALUNO
+                        WHERE IDALUNO = :idaluno";
+                $stmt = $minhaConexao->prepare($sql);
+                $stmt->bindParam("idaluno",$idaluno);
+
+                $stmt->execute();
+
+                $saldoAnterior = $stmt->fetch(PDO::FETCH_ASSOC);
+                print("<pre>".print_r($saldoAnterior,true)."</pre>");
+                $sql = "UPDATE ALUNO
+                        SET SALDO = :saldo
+                        WHERE IDALUNO = :idaluno";
+                $stmt = $minhaConexao->prepare($sql);
+                
+                $saldoNovo = $aluno->getSaldo() + $saldoAnterior['SALDO'];
+                $stmt->bindParam("saldo",$saldoNovo);
+                $stmt->bindParam("idaluno",$idaluno);
+
+                
+                $stmt->execute();
+                
+            }
+            catch(PDOException $e){
+                echo "entrou no catch".$e->getmessage();
+                return 0;
+            }
+        }// end depositarAluno
     }

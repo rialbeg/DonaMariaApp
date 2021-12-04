@@ -104,4 +104,8 @@ class Aluno extends Pessoa{
         $alunoDAO = new AlunoDAO();
         return $alunoDAO->listarTodosAlunos($this);
     } 
+    public function depositarAluno(){
+        $alunoDAO = new AlunoDAO();
+        return $alunoDAO->depositarAluno($this);
+    } 
 }

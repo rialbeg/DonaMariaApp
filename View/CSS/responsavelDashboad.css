@@ -257,7 +257,8 @@ a.link-active{
     
   }
   .close1:hover,
-  .alterar-aluno-button:hover {
+  .alterar-aluno-button:hover,
+  .deposito-aluno-button:hover{
     cursor: pointer;
     font-size:2.2rem;
   }
@@ -265,6 +266,15 @@ a.link-active{
     position: absolute;
     bottom:15px;
     right:90px;
+    color: var(--main-orange);
+    border: none;
+    text-decoration: none;
+    font-size: 1.5rem;
+  }
+  .deposito-aluno-button{
+    position: absolute;
+    bottom:15px;
+    right:15px;
     color: var(--main-orange);
     border: none;
     text-decoration: none;

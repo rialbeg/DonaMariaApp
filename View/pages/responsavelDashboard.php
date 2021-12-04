@@ -18,6 +18,7 @@
         return confirm("Confirma a exclusão?");
         
       }
+      
     </script>
     <title>Dona Maria</title>
   </head>
@@ -58,13 +59,20 @@
                 <h5>Turno: <?= $listaAlunos[$i]->getTurno() ?></h5>
                 <h5>Telefone: <?= $listaAlunos[$i]->getTelefone() ?></h5>
                 <h1>R$ <?= $listaAlunos[$i]->getSaldo() ?></h1>
-                <a href="#deposit-modal" title="deposito">
+
+                <form method="post" class="" action="FormDepositoAluno" >
+                  <input type="hidden" name="id" value="<?= $listaAlunos[$i]->getIdAluno();?>">
+                  <button class="deposito-aluno-button" title="Deposito Aluno" type="submit"  value= "">
+                    <i class="fas fa-money-bill-wave"></i>
+                  </button>
+                </form>
+                <!-- <a href="#deposit-modal" title="deposito">
                   <i class="fas fa-money-bill-wave deposit"></i>
-                </a>
-                <a href="./bloquear_produto.html" title="bloquear produto" onclick="block(this)">
+                </a> -->
+                <a href="#" title="bloquear produto" onclick="block(this)">
                   <i class="fas fa-lock block-food"></i>
                 </a>
-                <a href="./extrato_historico.html" title="extrato historico" onclick="block(this)" >
+                <a href="#" title="extrato historico" onclick="block(this)" >
                   <i class="fas fa-file-alt extrato"></i>
                 </a>
                 <form method="post" class="" action="FormAlterarAluno" >
@@ -99,7 +107,7 @@
       <div id="deposit-modal" class="overlay">
         <a href="#" class="cancel"></a>
         <div class="modal">
-          <form >
+          <form method="post" class="" action="depositoAluno" onSubmit="return confirmaDeposito();">
             <label for="deposito">Valor:</label>
             <input type="number" id="deposito" name="deposito" placeholder="Digite aqui ...">
             <input  type="submit" value="Depositar">
