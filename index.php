@@ -129,6 +129,32 @@
                 $controlador = new ControladorFazerLogin();
                 $controlador->processaRequisicao();
                 break;
+            case "ADDITEMCARRINHO":
+				require "Controller/ControladorAddItemCarrinho.php";
+				require_once 'Model/CarrinhoSession.php';
+				$carrinhoSession = new CarrinhoSession();
+				$controlador = new ControladorAddItemCarrinho($carrinhoSession);
+				$controlador->processaRequisicao();
+				break;
+			case "CARRINHO":
+				require "Controller/ControladorListaCarrinho.php";
+				$controlador = new ControladorListaCarrinho();
+				$controlador->processaRequisicao();
+				break;
+			case "CARRINHOALTQUANT":
+				require "Controller/ControladorAlteraQuantCarrinho.php";
+				require_once 'Model/CarrinhoSession.php';
+				$carrinhoSession = new CarrinhoSession();
+				$controlador = new ControladorAlteraQuantCarrinho($carrinhoSession);
+				$controlador->processaRequisicao();
+				break;
+			case "APAGAITEMCARRINHO":
+				require "Controller/ControladorApagaItemCarrinho.php";
+				require_once 'Model/CarrinhoSession.php';
+				$carrinhoSession = new CarrinhoSession();
+				$controlador = new ControladorApagaItemCarrinho($carrinhoSession);
+				$controlador->processaRequisicao();
+				break;
             default:
                 require "Controller/ControladorHome.php";    
                 $controlador = new ControladorHome();

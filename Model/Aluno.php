@@ -90,6 +90,10 @@ class Aluno extends Pessoa{
         $alunoDAO = new AlunoDAO();
         $alunoDAO->pesquisarAluno($this);
     }
+    public function pesquisarAlunoPorIdUsuario(){
+        $alunoDAO = new AlunoDAO();
+        $alunoDAO->pesquisarAlunoPorIdUsuario($this);
+    }
     public function pesquisarIdResponsavel(){
         $alunoDAO = new AlunoDAO();
         $alunoDAO->pesquisarIdResponsavel($this);

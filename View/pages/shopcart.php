@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="../CSS/shopcart.css" />
+    <link rel="stylesheet" href="View/CSS/shopcart.css" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,8 +18,8 @@
 <body>
     <header>
         <nav id="navbar">
-            <a href="../index.html">
-                <img src="../images/logo-nome.png" alt="Dona Maria Cantina Escolar" id="logo-nome" />
+            <a href="home">
+                <img src="View/images/logo-nome.png" alt="Dona Maria Cantina Escolar" id="logo-nome" />
             </a>
         </nav>
     </header>
@@ -107,7 +107,7 @@
         </div>
 
         <script src="https://kit.fontawesome.com/ffb9df773d.js" crossorigin="anonymous"></script>
-        <script src="../JS/shopcart.js"></script>
+        <script src="View/JS/shopcart.js"></script>
 </body>
 
 </html>

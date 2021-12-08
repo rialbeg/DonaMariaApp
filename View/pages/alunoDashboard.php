@@ -51,11 +51,11 @@
       <section id="header">
         <div class="header-text">
           <h1 class="header-welcome">Bem Vindo(a),</h1>
-          <h2 class="header-name">Bartholomew</h2>
+          <h2 class="header-name"><?= $this->aluno->getNome(); ?></h2>
         </div>
         <div class="header-creditos">
-          <h1 class="header-welcome">Créditos</h1>
-          <h2 class="header-valor">R$ 987,00</h2>
+          <h1 class="header-welcome">Saldo</h1>
+          <h2 class="header-valor">R$ <?=number_format($this->aluno->getSaldo(),2,",",".")?></h2>
         </div>
       </section>
 
@@ -85,39 +85,23 @@
           <h2 class="titleTab">Comidas</h2>
           <hr class="thin-line" />
           <div class="produtos">
+          <?php for($i=0;$i<count($listaProdutos);$i++): ?>
+            <?php if($listaProdutos[$i]->getTipo() === 'Comida'):?>
             <div class="produto">
-              <img src="View/images/produtos/enrroladinho-misto.jpg" alt="Alvo Dumbledore" />
+              <img src="<?= $listaProdutos[$i]->getCaminhoImagem()?>" alt="Alvo Dumbledore" />
               <div class="produto-text">
-                <h2>Enroladinho</h2>
-                <h5>Misto</h5>
-                <h1>R$ 2,15</h1>
+                <h2><?= $listaProdutos[$i]->getNome()?></h2>
+                <h1>R$<?=number_format($listaProdutos[$i]->getPreco(),2,",",".")?></h1>
               </div>
-              <a  title="adicionar ao carrinho" onclick="javascript:alert('item adicionado ao carrinho')" >
-                <i class="fas fa-plus-circle"></i>
-              </a>
+              <form method="post" class="" action="AddItemCarrinho" >
+                  <input type="hidden" name="id" value="<?= $listaProdutos[$i]->getIdProduto();?>">
+                  <button class="adicionar-carrinho" title="adicionar ao carrinho" type="submit"  value= "">
+                    <i class="fas fa-plus-circle"></i>
+                  </button>
+              </form>
             </div>
-            <div class="produto">
-              <img src="View/images/produtos/donuts.jpg" alt="Alvo Dumbledore" />
-              <div class="produto-text">
-                <h2>Donuts</h2>
-                <h5>01 unidade</h5>
-                <h1>R$ 9,15</h1>
-              </div>
-              <a  title="adicionar ao carrinho" onclick="javascript:alert('item adicionado ao carrinho')">
-                <i class="fas fa-plus-circle"></i>
-              </a>
-            </div>
-            <div class="produto">
-              <img src="View/images/produtos/sanduiche-de-presunto.jpg" alt="Alvo Dumbledore" />
-              <div class="produto-text">
-                <h2>Sanduiche de Presunto</h2>
-                <h5>15 Kg</h5>
-                <h1>R$ 273,15</h1>
-              </div>
-              <a  title="adicionar ao carrinho" onclick="javascript:alert('item adicionado ao carrinho')">
-                <i class="fas fa-plus-circle"></i>
-              </a>
-            </div>
+            <?php endif;?>
+          <?php endfor; ?>
           </div>
         </div>
 
@@ -126,39 +110,24 @@
           <h2 class="titleTab">Bebidas</h2>
           <hr class="thin-line" />
           <div class="produtos">
+          <?php for($i=0;$i<count($listaProdutos);$i++): ?>
+            <?php if($listaProdutos[$i]->getTipo() === 'Bebida'):?>
             <div class="produto">
-              <img src="View/images/produtos/coca-cola.png" alt="Alvo Dumbledore" />
+              <img src="<?= $listaProdutos[$i]->getCaminhoImagem()?>" alt="Alvo Dumbledore" />
               <div class="produto-text">
-                <h2>Coca-Cola</h2>
-                <h4>350 ml</h4>
-                <h1>R$ 8,00</h1>
+                <h2><?= $listaProdutos[$i]->getNome()?></h2>
+                <h1>R$<?=number_format($listaProdutos[$i]->getPreco(),2,",",".")?></h1>
               </div>
-              <a  title="adicionar ao carrinho" onclick="javascript:alert('item adicionado ao carrinho')">
-                <i class="fas fa-plus-circle"></i>
-              </a>
+              <form method="post" class="" action="AddItemCarrinho" >
+                  <input type="hidden" name="id" value="<?= $listaProdutos[$i]->getIdProduto();?>">
+                  <button class="adicionar-carrinho" title="adicionar ao carrinho" type="submit"  value= "">
+                    <i class="fas fa-plus-circle"></i>
+                  </button>
+              </form>
+          
             </div>
-            <div class="produto">
-              <img src="View/images/produtos/duff.jpg" alt="Alvo Dumbledore" />
-              <div class="produto-text">
-                <h2>Duff</h2>
-                <h4>350 ml</h4>
-                <h1>R$ 15,00</h1>
-              </div>
-              <a  title="adicionar ao carrinho" onclick="javascript:alert('item adicionado ao carrinho')">
-                <i class="fas fa-plus-circle"></i>
-              </a>
-            </div>
-            <div class="produto">
-              <img src="View/images/produtos/refresco.png" alt="Alvo Dumbledore" />
-              <div class="produto-text">
-                <h2>Refresco de groselha</h2>
-                <h4>Feito de tamarindo, sabor limão</h4>
-                <h1>R$ 150,00</h1>
-              </div>
-              <a  title="adicionar ao carrinho" onclick="javascript:alert('item adicionado ao carrinho')">
-                <i class="fas fa-plus-circle"></i>
-              </a>
-            </div>
+            <?php endif;?>
+          <?php endfor; ?>
           </div>
         </div>
         <!-- ----------  Extrato ---------- -->

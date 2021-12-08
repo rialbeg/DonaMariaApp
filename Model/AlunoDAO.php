@@ -184,6 +184,43 @@
                 }
         }// end pesquisarAluno
 
+        public function pesquisarAlunoPorIdUsuario($aluno){
+            
+            try{
+                $minhaConexao = Conexao::getConexao();
+                $sql = "SELECT * FROM ALUNO
+                        INNER JOIN usuario
+                        ON IDALUNO = ID_ALUNO
+                        WHERE IDUSUARIO = :idusuario;";
+                $stmt = $minhaConexao->prepare($sql);
+                $stmt->bindParam("idusuario",$idusuario);
+                $idusuario = $aluno->getIdAluno();
+                
+                $stmt->execute();
+                $stmt->setFetchMode(PDO::FETCH_ASSOC);
+                
+                // print("<pre>".print_r($stmt->fetchAll(),true)."</pre>");
+                while ($linha = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                    // print("<pre>".print_r($linha,true)."</pre>");
+                    $aluno->setIdAluno($linha['IDALUNO']);
+                    $aluno->setNome($linha['NOME']);
+                    $aluno->setMatricula($linha['MATRICULA']);
+                    $aluno->setTurma($linha['TURMA']);
+                    $aluno->setTurno($linha['TURNO']);
+                    $aluno->setTelefone($linha['TELEFONE']);
+                    $aluno->setEmail($linha['EMAIL']);
+                    $aluno->setSaldo($linha['SALDO']);
+                    $aluno->getUsuario()->setUserLogin($linha['USERLOGIN']);
+                    $aluno->getUsuario()->setNivelAcesso($linha['NIVELACESSO']);
+                    $aluno->getUsuario()->setSenha($linha['SENHA']);
+                }
+                
+            }
+            catch(PDOException $e){
+                echo "Error " . $e->getMessage();
+            }
+    }// end pesquisarAlunoPorIdUsuario
+
         public function pesquisarIdResponsavel($resp){
             try{
                 $minhaConexao = Conexao::getConexao();

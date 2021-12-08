@@ -32,7 +32,7 @@ nav#navbar {
   font-size: 2rem;
   color: white;
 
-  position: fixed;
+  /* position: fixed; */
   width: 100%;
   z-index: 5;
   padding: 0% 15%;
@@ -56,7 +56,7 @@ nav div.btn-login {
 /* ------------------------- MAIN -------------------------*/
 
 main {
-  padding-top: 9rem;
+  /* padding-top: 9rem; */
   /* margin: 0 15rem; */
   flex-wrap: wrap;
 }
@@ -250,6 +250,14 @@ h5 {
   margin: 0.2rem 0.2rem;
 }
 
+.adicionar-carrinho{
+  border:none;
+  font-size:1.8rem;
+  
+}
+.adicionar-carrinho:hover{
+  cursor:pointer;
+}
 /* ------------------------------ TABLES ------------------------- */
 .table-title{
   /* text-align: center; */
