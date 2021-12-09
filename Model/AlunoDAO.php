@@ -2,6 +2,52 @@
     require_once "Conexao.php";
     class AlunoDAO{
 
+        public function listarTodosAlunosPorEscola($aluno){
+            try{
+                $minhaConexao = Conexao::getConexao();
+                $sql = "SELECT IDALUNO,aluno.NOME,MATRICULA,TURMA,TURNO,aluno.TELEFONE,aluno.EMAIL,SALDO,USERLOGIN,NIVELACESSO
+                        FROM aluno
+                        INNER JOIN responsavel ON aluno.ID_RESPONSAVEL = responsavel.IDRESPONSAVEL
+                        INNER JOIN usuario ON usuario.ID_ALUNO = aluno.IDALUNO
+                        WHERE responsavel.ID_ESCOLA = :idescola";
+
+                $stmt = $minhaConexao->prepare($sql);
+                $stmt->bindParam('idescola', $idescola);    
+                $idescola = $aluno->getId_escola();
+                $stmt->execute();
+                $stmt->setFetchMode(PDO::FETCH_ASSOC);
+                // $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                // print("<pre>".print_r($result,true)."</pre>");
+                
+                $listaAlunos = array();
+                $i=0;
+    
+                while ($linha = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                    // print("<pre>".print_r($linha,true)."</pre>");
+                    $aluno = new Aluno();
+                    $aluno->setIdAluno($linha['IDALUNO']);
+                    $aluno->setNome($linha['NOME']);
+                    $aluno->setMatricula($linha['MATRICULA']);
+                    $aluno->setTurma($linha['TURMA']);
+                    $aluno->setTurno($linha['TURNO']);
+                    $aluno->setTelefone($linha['TELEFONE']);
+                    $aluno->setEmail($linha['EMAIL']);
+                    $aluno->setSaldo($linha['SALDO']);
+                    $aluno->getUsuario()->setUserLogin($linha['USERLOGIN']);
+                    $aluno->getUsuario()->setNivelAcesso($linha['NIVELACESSO']);
+                    $listaAlunos[$i] = $aluno;
+                    $i++;   
+                }
+
+                
+                // print("<pre>".print_r($listaResp,true)."</pre>");
+
+                return $listaAlunos;
+            }
+            catch(PDOException $e){
+                return array();
+            }
+        }
         public function listarTodosAlunos($aluno){
             //vai ao banco de dados e pega todos os livros
             try{

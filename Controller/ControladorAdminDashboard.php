@@ -5,6 +5,7 @@ require_once "Model/Validation.php";
 require_once "Model/Produto.php";
 require_once "Model/Responsavel.php";
 require_once "Model/Aluno.php";
+require_once "Model/Utils.php";
 
 class ControladorAdminDashboard implements IControlador{
 
@@ -19,12 +20,16 @@ class ControladorAdminDashboard implements IControlador{
     
     public function processaRequisicao(){
         Validation::validaSessao();
-        $this->responsavel->setId_escola($_SESSION['idusuario']);
+        $id_escola = Utils::getIdEscolaByIdUsuario($_SESSION['idusuario']);
+        $this->responsavel->setId_escola($id_escola);
+        
+        $this->aluno->setId_escola($id_escola);
+    
         $listaProdutos = $this->produto->listarTodosProdutos();
         $listaResponsaveis = $this->responsavel->listarTodosResponsaveis();
-        $listaAlunos = $this->aluno->listarTodosAlunos();
+        $listaAlunos = $this->aluno->listarTodosAlunosPorEscola();
 
-        // print("<pre>".print_r($listaAlunos,true)."</pre>");
+        // print("<pre>".print_r($_SESSION,true)."</pre>");
         require "View/pages/adminDashboard.php";
     }
 }

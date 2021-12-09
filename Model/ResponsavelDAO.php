@@ -14,6 +14,7 @@
                         ON responsavel.IDRESPONSAVEL = usuario.ID_RESPONSAVEL
                         WHERE responsavel.ID_ESCOLA = :id_escola";
 
+
                 $stmt = $minhaConexao->prepare($sql);
             
                 $stmt->bindParam('id_escola',$id_escola);
