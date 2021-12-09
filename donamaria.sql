@@ -20,8 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `donamaria`
 --
-CREATE DATABASE IF NOT EXISTS `donamaria2` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `donamaria2`;
+CREATE DATABASE IF NOT EXISTS `donamaria` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `donamaria`;
 
 -- --------------------------------------------------------
 
