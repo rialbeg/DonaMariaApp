@@ -7,5 +7,6 @@ interface ICarrinho{
     public function getTotal();
     public function getItensCarrinho();
     public function estaNoCarrinho($id);
+    public function limpaItensCarrinho();
 }
 ?>

@@ -58,7 +58,7 @@
                 </div>
                 <h5>Turno: <?= $listaAlunos[$i]->getTurno() ?></h5>
                 <h5>Telefone: <?= $listaAlunos[$i]->getTelefone() ?></h5>
-                <h1>R$ <?= $listaAlunos[$i]->getSaldo() ?></h1>
+                <h1>R$ <?=number_format($listaAlunos[$i]->getSaldo(),2,",",".") ?></h1>
 
                 <form method="post" class="" action="FormDepositoAluno" >
                   <input type="hidden" name="id" value="<?= $listaAlunos[$i]->getIdAluno();?>">

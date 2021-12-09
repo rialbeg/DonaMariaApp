@@ -17,7 +17,8 @@ class ControladorListaCarrinho implements IControlador{
         $itensCarrinho = $this->carrinho->getItensCarrinho();
         $carrinho = $this->carrinho;
         // print("<pre>".print_r($_SESSION,true)."</pre>");
-        print("<pre>".print_r($itensCarrinho,true)."</pre>");
+        // print("<pre>".print_r($itensCarrinho,true)."</pre>");
+        
         // print("<pre>".print_r($this->carrinho,true)."</pre>");
         require "View/pages/shopcart.php";
     }

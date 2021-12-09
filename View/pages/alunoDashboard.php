@@ -30,20 +30,7 @@
 
   <body>
     <header >
-      <nav id="navbar">
-        <a href="Home">
-          <img
-          src="View/images/logo-nome.png"
-          alt="Dona Maria Cantina Escolar"
-          id="logo-nome"
-        />
-        </a>
-        <!-- <ul class="navlist">
-          <li class="navitem">Home</li>
-          <li class="navitem">Sobre Nós</li>
-        </ul>
-        <div class="btn-login">Login</div> -->
-      </nav>
+      <?php require "navbar.php"?>
     </header>
 
     <main id="main">
@@ -95,6 +82,7 @@
               </div>
               <form method="post" class="" action="AddItemCarrinho" >
                   <input type="hidden" name="id" value="<?= $listaProdutos[$i]->getIdProduto();?>">
+                  <input type="hidden" name="saldo" value="<?= $this->aluno->getSaldo();?>">
                   <button class="adicionar-carrinho" title="adicionar ao carrinho" type="submit"  value= "">
                     <i class="fas fa-plus-circle"></i>
                   </button>
@@ -166,7 +154,7 @@
           </div>
         </div>
       </section>
-      <a href="./shopcart.html" class="float">
+      <a href="carrinho" class="float">
         <i class="fas fa-cart-plus"></i>
       </a>
     </main>

@@ -21,7 +21,9 @@ body {
   background-color: var(--main-background-color);
   font-size: 1.6rem;
 }
-
+a{
+  text-decoration: none;
+}
 /* ------------------------- NAVBAR ------------------------- */
 nav#navbar {
   background-color: var(--main-orange);
@@ -48,8 +50,10 @@ nav ul.navlist li.navitem {
   padding-right: 30px;
 }
 
-nav div.btn-login {
-  padding-right: 20px;
+nav#navbar a.btn-login {
+  padding-right: 30px;
+  font-size:2.5rem;
+  color:white !important;
 }
 
 /* ------------------------- MAIN -------------------------*/
@@ -101,7 +105,13 @@ main {
   font-size: 2.5rem;
 }
 
+.header-name{
+  color:white;
 
+}
+.header-welcome a{
+  color:white;
+}
 
 /*---------------------SHOPING CART------------------------------*/
 /*
@@ -228,6 +238,7 @@ label {
   width: 100px;
 }
 .product .product-details .product-title {
+  font-size: 1.9rem;
   margin-right: 20px;
   font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium";
 }

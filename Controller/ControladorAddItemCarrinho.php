@@ -20,6 +20,7 @@ class ControladorAddItemCarrinho implements IControlador{
             $itemCarrinho = new ItemCarrinho($_POST['id'],1);
             //adiciona o itemCarrinho no carrinho
             $this->carrinhoSession->adicionar($itemCarrinho);
+            $_SESSION['saldo'] = $_POST['saldo'];
         }
         // print("<pre>".print_r($this->carrinhoSession->getItensCarrinho(),true)."</pre>");
         // print("<pre>".print_r($_SESSION,true)."</pre>");

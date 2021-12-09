@@ -17,23 +17,32 @@
 
 <body>
     <header>
-        <nav id="navbar">
-            <a href="home">
-                <img src="View/images/logo-nome.png" alt="Dona Maria Cantina Escolar" id="logo-nome" />
-            </a>
-        </nav>
+    
+        <?php require "navbar.php";?>
+    
     </header>
 
     <main id="main">
         <!-- ----------  Header ---------- -->
         <section id="header">
             <div class="header-text">
-                <h1 class="header-welcome">Carrinho </h1>
-                <h2 class="header-name">de compras</h2>
+                <h1 class="header-welcome">
+                    <a href="alunoDash">
+                        <!-- <i class="fas fa-arrow-left"></i> -->
+                        Voltar
+                    </a>
+                </h1>
+                <h2 class="header-name"></h2>
             </div>
             <div class="header-creditos">
                 <h1 class="header-welcome">Créditos</h1>
-                <h2 class="header-valor">R$ 987,00</h2>
+                <?php 
+                    if(isset($_SESSION['saldo']))
+                        $saldo = $_SESSION['saldo'];
+                    else
+                        $saldo = 0.00;
+                ?>
+                <h2 class="header-valor">R$ <?=number_format($saldo,2,",",".")?></h2>
             </div>
         </section>
 
@@ -48,61 +57,49 @@
                 <label class="product-removal">Remover</label>
                 <label class="product-line-price">Total</label>
             </div>
-
+            <?php foreach($itensCarrinho as $item): ?>
             <div class="product">
                 <div class="product-image">
-                    <img src="../images/produtos/enrroladinho-misto.jpg">
+                    <img src="<?= $item->getProduto()->getCaminhoImagem()?>">
                 </div>
                 <div class="product-details">
-                    <div class="product-title">Enroladinho</div>
-                    <p class="product-description">
-                        Enroladinho de salsicha feito com ingredientes 
-                        selecionados.
-                    </p>
+                    <div class="product-title"><?= $item->getProduto()->getNome() ?></div>
                 </div>
-                <div class="product-price">2,15</div>
-                <div class="product-quantity">
+                <div class="product-price"><?= number_format($item->getProduto()->getPreco(),2,',','.');?></div>
+                <form class="product-quantity" action="CarrinhoAltQuant" method="post">
+                    <input type="hidden" name="id" value="<?= $item->getProduto()->getIdProduto(); ?>">
+                    <input type="text" name="quantidade" value="<?= $item->getQuantidade(); ?>" size="2" >
+                    <button type="submit" class="remove-product">Alterar</button>
+                </form>
+                <!-- <div class="product-quantity">
                     <input type="number" value="2" min="1">
-                </div>
+                </div> -->
                 <div class="product-removal">
-                    <button class="remove-product">
-                        Remover
-                    </button>
+                <form method="post" action="ApagaItemCarrinho" >
+                    <input type="hidden" name="id" value="<?php echo $item->getProduto()->getIdProduto(); ?>">
+                    <input type="submit" class="remove-product" value= "Remover">
+                </form>
+                <!-- <button class="remove-product">
+                    Remover
+                </button> -->
                 </div>
-                <div class="product-line-price">4,30</div>
+                <div class="product-line-price"><?= number_format($item->getSubTotal(),2,',','.'); ?></div>
             </div>
-
-            <div class="product">
-                <div class="product-image">
-                    <img src="../images/produtos/coca-cola.png">
-                </div>
-                <div class="product-details">
-                    <div class="product-title">Coca-cola</div>
-                    <p class="product-description">
-                        Coca-cola espumante... em lata, 350ml.
-                    </p>
-                </div>
-                <div class="product-price">8,00</div>
-                <div class="product-quantity">
-                    <input type="number" value="1" min="1">
-                </div>
-                <div class="product-removal">
-                    <button class="remove-product">
-                        Remover
-                    </button>
-                </div>
-                <div class="product-line-price">8,00</div>
-            </div>
-
+            <?php endforeach;?>
+            
             <div class="totals">
                 
                 <div class="totals-item totals-item-total">
                     <label>Total</label>
-                    <div class="totals-value" id="cart-total">12,30</div>
+                    <div class="totals-value" id="cart-total"><?= number_format($carrinho->getTotal(),2,',','.'); ?></div>
                 </div>
             </div>
-
-            <button class="checkout">Finalizar</button>
+            
+            <form method="post" action="FinalizaCompra" >
+                    <input type="hidden" name="id" value="<?= $item->getProduto()->getIdProduto(); ?>">
+                    <!-- <input type="submit" class="remove-product" value= "Remover"> -->
+                    <button type="submit" class="checkout">Finalizar</button>
+            </form>
 
         </div>
 

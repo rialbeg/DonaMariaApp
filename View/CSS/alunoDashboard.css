@@ -49,10 +49,12 @@ nav ul.navlist li.navitem {
   padding-right: 30px;
 }
 
-nav div.btn-login {
-  padding-right: 20px;
-}
 
+nav#navbar a.btn-login {
+  padding-right: 30px;
+  font-size:2.5rem;
+  color:white !important;
+}
 /* ------------------------- MAIN -------------------------*/
 
 main {

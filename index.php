@@ -155,6 +155,13 @@
 				$controlador = new ControladorApagaItemCarrinho($carrinhoSession);
 				$controlador->processaRequisicao();
 				break;
+			case "FINALIZACOMPRA":
+				require "Controller/ControladorFinalizaCompra.php";
+				require_once 'Model/CarrinhoSession.php';
+				$carrinhoSession = new CarrinhoSession();
+				$controlador = new ControladorFinalizaCompra($carrinhoSession);
+				$controlador->processaRequisicao();
+				break;
             default:
                 require "Controller/ControladorHome.php";    
                 $controlador = new ControladorHome();

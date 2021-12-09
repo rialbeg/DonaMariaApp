@@ -60,6 +60,14 @@ class CarrinhoSession implements ICarrinho{
        return $this->itens;
    }
 
+    public function limpaItensCarrinho(){
+        foreach ($this->itens as $i => $item){
+                unset($this->itens[$i]);
+        }
+    }    
+    public function finalizarCompra(){
+        $this->limpaItensCarrinho();
+    }
    public function __destruct(){
        //salva os itens do carrinho na sessão para não perder os dados
        // quando o objeto for destruido

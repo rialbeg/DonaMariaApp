@@ -15,7 +15,8 @@
                 $nivelB = ['RESPONSAVELDASH', 'CADASTROALUNO', 'DEPOSITOALUNO','FORMDEPOSITOALUNO',
                             'INCLUIRALUNO','EXCLUIRALUNO','ALTERARALUNO','FORMALTERARALUNO'];
                 
-                $nivelC = ['ALUNODASH','COMPRAR','ADDITEMCARRINHO','CARRINHO','CARRINHOALTQUANT','APAGAITEMCARRINHO'];
+                $nivelC = ['ALUNODASH','COMPRAR','ADDITEMCARRINHO','CARRINHO','CARRINHOALTQUANT',
+                            'APAGAITEMCARRINHO','FINALIZACOMPRA'];
                 
                 switch ($_SESSION['nivelacesso']) {
                     case 'A':
